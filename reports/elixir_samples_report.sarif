@@ -1,0 +1,381 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "DPX-Elixir",
+          "semanticVersion": "0.1.0",
+          "rules": [
+            {
+              "id": "DPX-ELIXIR-GEN_SERVER",
+              "name": "gen_server",
+              "shortDescription": {
+                "text": "Elixir Pattern: Gen Server"
+              },
+              "fullDescription": {
+                "text": "Module 'Core.OrderServer' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)"
+              },
+              "properties": {
+                "category": "otp_behaviour"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-SUPERVISOR",
+              "name": "supervisor",
+              "shortDescription": {
+                "text": "Elixir Pattern: Supervisor"
+              },
+              "fullDescription": {
+                "text": "Module 'Core.AppSupervisor' adopts OTP Supervisor behaviour (`use Supervisor`)"
+              },
+              "properties": {
+                "category": "otp_behaviour"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-PIPELINE_OPERATOR",
+              "name": "pipeline_operator",
+              "shortDescription": {
+                "text": "Elixir Pattern: Pipeline Operator"
+              },
+              "fullDescription": {
+                "text": "Function 'process_checkout/1' composes functional data transformations across a 5-stage pipe (`|>`)"
+              },
+              "properties": {
+                "category": "functional_idiom"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-PLUG_PIPELINE",
+              "name": "plug_pipeline",
+              "shortDescription": {
+                "text": "Elixir Pattern: Plug Pipeline"
+              },
+              "fullDescription": {
+                "text": "Module 'Core.OrderServer' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-FACADE_CONTEXT",
+              "name": "facade_context",
+              "shortDescription": {
+                "text": "Elixir Pattern: Facade Context"
+              },
+              "fullDescription": {
+                "text": "Module 'Core.Accounts' serves as a Phoenix Context Facade encapsulating business operations (get_user!, list_users, create_user, update_user)"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+              "name": "adapter_behaviour",
+              "shortDescription": {
+                "text": "Elixir Pattern: Adapter Behaviour"
+              },
+              "fullDescription": {
+                "text": "Module 'Core.OrderServer' defines interchangeable Adapter Behaviour contract with 1 callback(s) (format_order/1)"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-COMMAND_TAGGED_TUPLE",
+              "name": "command_tagged_tuple",
+              "shortDescription": {
+                "text": "Elixir Pattern: Command Tagged Tuple"
+              },
+              "fullDescription": {
+                "text": "Function handle_call/3 in 'Core.OrderServer' pattern matches on 2 distinct Command tagged tuples"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+              "name": "with_monadic_pipeline",
+              "shortDescription": {
+                "text": "Elixir Pattern: With Monadic Pipeline"
+              },
+              "fullDescription": {
+                "text": "Function 'execute_payment/2' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-DEFENSIVE_RESCUE_SMELL",
+              "name": "defensive_rescue_smell",
+              "shortDescription": {
+                "text": "Elixir Pattern: Defensive Rescue Smell"
+              },
+              "fullDescription": {
+                "text": "Let-It-Crash Violation: Function 'defensive_rescue_antipattern/1' in 'Core.BadWorker' defensively swallows errors (`rescue _ -> nil`); let processes fail fast and restart cleanly via Supervisor"
+              },
+              "properties": {
+                "category": "safety"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-UNBOUNDED_PROCESS_SPAWN",
+              "name": "unbounded_process_spawn",
+              "shortDescription": {
+                "text": "Elixir Pattern: Unbounded Process Spawn"
+              },
+              "fullDescription": {
+                "text": "Safety Audit (Unsupervised Process): Function 'unsafe_handler/1' in 'Core.BadWorker' calls raw `spawn/spawn_link`; use `Task.Supervisor` for fault tolerance and supervision"
+              },
+              "properties": {
+                "category": "safety"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-STRING_TO_ATOM_VULNERABILITY",
+              "name": "string_to_atom_vulnerability",
+              "shortDescription": {
+                "text": "Elixir Pattern: String To Atom Vulnerability"
+              },
+              "fullDescription": {
+                "text": "Safety Audit (Atom Exhaustion Risk): Function 'unsafe_handler/1' in 'Core.BadWorker' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion"
+              },
+              "properties": {
+                "category": "safety"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "DPX-ELIXIR-GEN_SERVER",
+          "level": "note",
+          "message": {
+            "text": "Module 'Core.OrderServer' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-SUPERVISOR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Core.AppSupervisor' adopts OTP Supervisor behaviour (`use Supervisor`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/app_supervisor.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'process_checkout/1' composes functional data transformations across a 5-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_pipeline.ex"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Core.OrderServer' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-FACADE_CONTEXT",
+          "level": "note",
+          "message": {
+            "text": "Module 'Core.Accounts' serves as a Phoenix Context Facade encapsulating business operations (get_user!, list_users, create_user, update_user)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/accounts_facade.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Core.OrderServer' defines interchangeable Adapter Behaviour contract with 1 callback(s) (format_order/1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-COMMAND_TAGGED_TUPLE",
+          "level": "note",
+          "message": {
+            "text": "Function handle_call/3 in 'Core.OrderServer' pattern matches on 2 distinct Command tagged tuples"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex"
+                },
+                "region": {
+                  "startLine": 22,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'execute_payment/2' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_pipeline.ex"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-DEFENSIVE_RESCUE_SMELL",
+          "level": "error",
+          "message": {
+            "text": "Let-It-Crash Violation: Function 'defensive_rescue_antipattern/1' in 'Core.BadWorker' defensively swallows errors (`rescue _ -> nil`); let processes fail fast and restart cleanly via Supervisor"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex"
+                },
+                "region": {
+                  "startLine": 16,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-UNBOUNDED_PROCESS_SPAWN",
+          "level": "error",
+          "message": {
+            "text": "Safety Audit (Unsupervised Process): Function 'unsafe_handler/1' in 'Core.BadWorker' calls raw `spawn/spawn_link`; use `Task.Supervisor` for fault tolerance and supervision"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRING_TO_ATOM_VULNERABILITY",
+          "level": "error",
+          "message": {
+            "text": "Safety Audit (Atom Exhaustion Risk): Function 'unsafe_handler/1' in 'Core.BadWorker' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex"
+                },
+                "region": {
+                  "startLine": 6,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

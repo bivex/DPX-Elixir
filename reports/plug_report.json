@@ -1,0 +1,2384 @@
+{
+  "project_path": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug",
+  "scanned_files_count": 78,
+  "total_detections_count": 111,
+  "elapsed_seconds": 0.0451,
+  "summary_by_category": {
+    "otp_behaviour": 5,
+    "actor_concurrency": 2,
+    "functional_idiom": 23,
+    "structural": 46,
+    "behavioral": 25,
+    "safety": 3,
+    "principle": 7
+  },
+  "summary_by_confidence_level": {
+    "low": 0,
+    "medium": 0,
+    "high": 73,
+    "very_high": 38
+  },
+  "detections": [
+    {
+      "pattern_type": "gen_server",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Plug.Upload",
+      "target_kind": "genserver_module",
+      "confidence": {
+        "score": 0.94,
+        "level": "very_high",
+        "percentage": "94%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload.ex:5:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Upload' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)",
+          "weight": 0.75,
+          "rule_code": "GEN_SERVER_USE_DECLARATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload.ex:5:1"
+        },
+        {
+          "description": "Implements 4 core GenServer callback(s) (init/1, handle_call/3, handle_cast/2, handle_info/2)",
+          "weight": 0.6,
+          "rule_code": "GEN_SERVER_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload.ex:5:1"
+        },
+        {
+          "description": "Provides canonical starter function 'start_link/1'",
+          "weight": 0.4,
+          "rule_code": "GEN_SERVER_START_LINK",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload.ex:211:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "gen_server",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Plug.Upload.Terminator",
+      "target_kind": "genserver_module",
+      "confidence": {
+        "score": 0.94,
+        "level": "very_high",
+        "percentage": "94%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload/terminator.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Upload.Terminator' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)",
+          "weight": 0.75,
+          "rule_code": "GEN_SERVER_USE_DECLARATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload/terminator.ex:1:1"
+        },
+        {
+          "description": "Implements 2 core GenServer callback(s) (init/1, terminate/2)",
+          "weight": 0.6,
+          "rule_code": "GEN_SERVER_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload/terminator.ex:1:1"
+        },
+        {
+          "description": "Provides canonical starter function 'start_link/1'",
+          "weight": 0.4,
+          "rule_code": "GEN_SERVER_START_LINK",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload/terminator.ex:7:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "supervisor",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Plug.Upload.Supervisor",
+      "target_kind": "supervisor_module",
+      "confidence": {
+        "score": 0.9125,
+        "level": "very_high",
+        "percentage": "91%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload/supervisor.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Upload.Supervisor' adopts OTP Supervisor behaviour (`use Supervisor`)",
+          "weight": 0.75,
+          "rule_code": "SUPERVISOR_USE_DECLARATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload/supervisor.ex:1:1"
+        },
+        {
+          "description": "Defines supervisor child specifications and restart strategy ':one_for_one'",
+          "weight": 0.65,
+          "rule_code": "SUPERVISOR_INIT_STRATEGY",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload/supervisor.ex:17:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "agent_state",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Plug.BuilderTest",
+      "target_kind": "agent_state_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/builder_test.exs:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.BuilderTest' encapsulates state in an OTP Agent process (`use Agent`)",
+          "weight": 0.8,
+          "rule_code": "AGENT_STATE_MODULE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/builder_test.exs:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "task_async",
+      "pattern_category": "actor_concurrency",
+      "target_name": "Plug.CSRFProtectionTest.handle_token/1",
+      "target_kind": "task_async_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/csrf_protection_test.exs:50:1",
+      "evidences": [
+        {
+          "description": "Function 'handle_token/1' coordinates asynchronous parallel tasks / streams via Task module",
+          "weight": 0.8,
+          "rule_code": "TASK_ASYNC_CONCURRENCY",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/csrf_protection_test.exs:50:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "task_async",
+      "pattern_category": "actor_concurrency",
+      "target_name": "Plug.Conn.async_assign/4",
+      "target_kind": "task_async_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn.ex:339:1",
+      "evidences": [
+        {
+          "description": "Function 'async_assign/4' coordinates asynchronous parallel tasks / streams via Task module",
+          "weight": 0.8,
+          "rule_code": "TASK_ASYNC_CONCURRENCY",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn.ex:339:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "application",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Plug.Application",
+      "target_kind": "application_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/application.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Application' coordinates top-level application startup lifecycle (`use Application`)",
+          "weight": 0.85,
+          "rule_code": "APPLICATION_OTP_STARTUP",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/application.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "protocol_polymorphism",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.Exception",
+      "target_kind": "protocol_definition",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/exceptions.ex:4:1",
+      "evidences": [
+        {
+          "description": "Protocol 'Plug.Exception' defines extensible polymorphism contract via defprotocol",
+          "weight": 0.85,
+          "rule_code": "PROTOCOL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/exceptions.ex:4:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Plug.Test",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/test.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Test' defines 1 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/test.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Plug.Router",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Router' defines 12 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Plug.ErrorHandler",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/error_handler.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.ErrorHandler' defines 2 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/error_handler.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Plug.Builder",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/builder.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Builder' defines 2 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/builder.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.CSRFProtectionTest.call_with_invalid_token/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/csrf_protection_test.exs:26:1",
+      "evidences": [
+        {
+          "description": "Function 'call_with_invalid_token/1' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/csrf_protection_test.exs:26:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.CSRFProtectionTest.call_csrf_with_session/2",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/csrf_protection_test.exs:39:1",
+      "evidences": [
+        {
+          "description": "Function 'call_csrf_with_session/2' composes functional data transformations across a 7-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/csrf_protection_test.exs:39:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.StaticTest.call/2",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/static_test.exs:13:1",
+      "evidences": [
+        {
+          "description": "Function 'call/2' composes functional data transformations across a 47-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/static_test.exs:13:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.DebuggerTest.returns_nil/0",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/debugger_test.exs:82:1",
+      "evidences": [
+        {
+          "description": "Function 'returns_nil/0' composes functional data transformations across a 43-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/debugger_test.exs:82:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.RewriteOn.call/2",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex:44:1",
+      "evidences": [
+        {
+          "description": "Function 'call/2' composes functional data transformations across a 8-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex:44:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.Parsers.merge_params/4",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers.ex:370:1",
+      "evidences": [
+        {
+          "description": "Function 'merge_params/4' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers.ex:370:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.Session.fetch_session/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session.ex:72:1",
+      "evidences": [
+        {
+          "description": "Function 'fetch_session/1' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session.ex:72:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.Conn.get_req_header/2",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn.ex:692:1",
+      "evidences": [
+        {
+          "description": "Function 'get_req_header/2' composes functional data transformations across a 17-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn.ex:692:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.SSL.configure/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:170:1",
+      "evidences": [
+        {
+          "description": "Function 'configure/1' composes functional data transformations across a 7-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:170:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.SSL.set_secure_defaults/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:271:1",
+      "evidences": [
+        {
+          "description": "Function 'set_secure_defaults/1' composes functional data transformations across a 4-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:271:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.SSL.set_strong_tls_defaults/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:303:1",
+      "evidences": [
+        {
+          "description": "Function 'set_strong_tls_defaults/1' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:303:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.SSL.set_compatible_tls_defaults/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:310:1",
+      "evidences": [
+        {
+          "description": "Function 'set_compatible_tls_defaults/1' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:310:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.SSL.validate_ciphers/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:317:1",
+      "evidences": [
+        {
+          "description": "Function 'validate_ciphers/1' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:317:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.SSL.keynew/4",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:342:1",
+      "evidences": [
+        {
+          "description": "Function 'keynew/4' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:342:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.Builder.__before_compile__/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/builder.ex:172:1",
+      "evidences": [
+        {
+          "description": "Function '__before_compile__/1' composes functional data transformations across a 8-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/builder.ex:172:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.Static.init/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:157:1",
+      "evidences": [
+        {
+          "description": "Function 'init/1' composes functional data transformations across a 5-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:157:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.Static.serve_static/5",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:257:1",
+      "evidences": [
+        {
+          "description": "Function 'serve_static/5' composes functional data transformations across a 8-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:257:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.Static.send_range/6",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:331:1",
+      "evidences": [
+        {
+          "description": "Function 'send_range/6' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:331:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.Static.send_unsatisfiable_range/3",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:344:1",
+      "evidences": [
+        {
+          "description": "Function 'send_unsatisfiable_range/3' composes functional data transformations across a 4-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:344:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.Static.send_entire_file/3",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:352:1",
+      "evidences": [
+        {
+          "description": "Function 'send_entire_file/3' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:352:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.Adapters.Test.Conn.conn/4",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/adapters/test/conn.ex:8:1",
+      "evidences": [
+        {
+          "description": "Function 'conn/4' composes functional data transformations across a 6-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/adapters/test/conn.ex:8:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Plug.Router.Utils.build_host_match/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router/utils.ex:47:1",
+      "evidences": [
+        {
+          "description": "Function 'build_host_match/1' composes functional data transformations across a 8-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router/utils.ex:47:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "PlugTest",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug_test.exs:1:1",
+      "evidences": [
+        {
+          "description": "Module 'PlugTest' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug_test.exs:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.ProcessStore",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/test_helper.exs:3:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.ProcessStore' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/test_helper.exs:3:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.BuilderTest",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/builder_test.exs:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.BuilderTest' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/builder_test.exs:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.TelemetryTest",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/telemetry_test.exs:3:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.TelemetryTest' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/telemetry_test.exs:3:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.RouterTest",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/router_test.exs:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.RouterTest' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/router_test.exs:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.ErrorHandlerTest",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/error_handler_test.exs:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.ErrorHandlerTest' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/error_handler_test.exs:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.LoggerTest",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/logger_test.exs:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.LoggerTest' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/logger_test.exs:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.StaticTest",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/static_test.exs:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.StaticTest' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/static_test.exs:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "FilterPlug",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/static_test.exs:863:1",
+      "evidences": [
+        {
+          "description": "Module 'FilterPlug' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/static_test.exs:863:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.DebuggerTest",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/debugger_test.exs:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.DebuggerTest' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/debugger_test.exs:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.CSRFProtection",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/csrf_protection.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.CSRFProtection' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/csrf_protection.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.RewriteOn",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.RewriteOn' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Telemetry",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/telemetry.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Telemetry' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/telemetry.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Parsers",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Parsers' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Session",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Session' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Logger",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/logger.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Logger' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/logger.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Router",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Router' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.ErrorHandler",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/error_handler.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.ErrorHandler' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/error_handler.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.SSL",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.SSL' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.BasicAuth",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/basic_auth.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.BasicAuth' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/basic_auth.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Debugger",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/debugger.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Debugger' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/debugger.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Builder",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/builder.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Builder' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/builder.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.RequestId",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/request_id.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.RequestId' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/request_id.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Head",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/head.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Head' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/head.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.MethodOverride",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/method_override.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.MethodOverride' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/method_override.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Static",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Static' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Parsers.MULTIPART",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/multipart.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Parsers.MULTIPART' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/multipart.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Parsers.URLENCODED",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/urlencoded.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Parsers.URLENCODED' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/urlencoded.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Parsers.JSON",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/json.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Parsers.JSON' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/json.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Adapters.Test.Conn",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/adapters/test/conn.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Adapters.Test.Conn' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/adapters/test/conn.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Session.ETS",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/ets.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Session.ETS' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/ets.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Plug.Session.COOKIE",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/cookie.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Session.COOKIE' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/cookie.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "ets_registry",
+      "pattern_category": "structural",
+      "target_name": "Plug.Session.ETSTest",
+      "target_kind": "registry_ets_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/session/ets_test.exs:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Session.ETSTest' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching",
+          "weight": 0.8,
+          "rule_code": "ETS_REGISTRY_LOOKUP",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/session/ets_test.exs:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "ets_registry",
+      "pattern_category": "structural",
+      "target_name": "Plug.Application",
+      "target_kind": "registry_ets_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/application.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Application' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching",
+          "weight": 0.8,
+          "rule_code": "ETS_REGISTRY_LOOKUP",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/application.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "ets_registry",
+      "pattern_category": "structural",
+      "target_name": "Plug.Upload.Supervisor",
+      "target_kind": "registry_ets_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload/supervisor.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Upload.Supervisor' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching",
+          "weight": 0.8,
+          "rule_code": "ETS_REGISTRY_LOOKUP",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload/supervisor.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "ets_registry",
+      "pattern_category": "structural",
+      "target_name": "Plug.Session.ETS",
+      "target_kind": "registry_ets_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/ets.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Session.ETS' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching",
+          "weight": 0.8,
+          "rule_code": "ETS_REGISTRY_LOOKUP",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/ets.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "adapter_behaviour",
+      "pattern_category": "structural",
+      "target_name": "Plug",
+      "target_kind": "adapter_behaviour_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug' defines interchangeable Adapter Behaviour contract with 2 callback(s) (init/1, call/1)",
+          "weight": 0.8,
+          "rule_code": "ADAPTER_BEHAVIOUR_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "adapter_behaviour",
+      "pattern_category": "structural",
+      "target_name": "Plug.Parsers",
+      "target_kind": "adapter_behaviour_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Parsers' defines interchangeable Adapter Behaviour contract with 2 callback(s) (init/1, parse/1)",
+          "weight": 0.8,
+          "rule_code": "ADAPTER_BEHAVIOUR_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "adapter_behaviour",
+      "pattern_category": "structural",
+      "target_name": "Plug.ErrorHandler",
+      "target_kind": "adapter_behaviour_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/error_handler.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.ErrorHandler' defines interchangeable Adapter Behaviour contract with 1 callback(s) (handle_errors/1)",
+          "weight": 0.8,
+          "rule_code": "ADAPTER_BEHAVIOUR_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/error_handler.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "adapter_behaviour",
+      "pattern_category": "structural",
+      "target_name": "Plug.Conn.Adapter",
+      "target_kind": "adapter_behaviour_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn/adapter.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Conn.Adapter' defines interchangeable Adapter Behaviour contract with 12 callback(s) (send_resp/2, send_file/2, send_chunked/2, chunk/2, read_req_body/2, push/2, inform/2, upgrade/3, get_peer_data/1, get_sock_data/1, get_ssl_data/1, get_http_protocol/1)",
+          "weight": 0.8,
+          "rule_code": "ADAPTER_BEHAVIOUR_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn/adapter.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "adapter_behaviour",
+      "pattern_category": "structural",
+      "target_name": "Plug.Session.Store",
+      "target_kind": "adapter_behaviour_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/store.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Plug.Session.Store' defines interchangeable Adapter Behaviour contract with 4 callback(s) (init/1, get/1, put/1, delete/1)",
+          "weight": 0.8,
+          "rule_code": "ADAPTER_BEHAVIOUR_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/store.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.CSRFProtection.valid_state_and_csrf_token?/2",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/csrf_protection.ex:206:1",
+      "evidences": [
+        {
+          "description": "Function 'valid_state_and_csrf_token?/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/csrf_protection.ex:206:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.RewriteOn.put_port/2",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex:123:1",
+      "evidences": [
+        {
+          "description": "Function 'put_port/2' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex:123:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.RewriteOn.put_remote_ip/2",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex:133:1",
+      "evidences": [
+        {
+          "description": "Function 'put_remote_ip/2' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex:133:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Upload.give_away/3",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload.ex:87:1",
+      "evidences": [
+        {
+          "description": "Function 'give_away/3' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload.ex:87:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Conn.get_req_header/2",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn.ex:692:1",
+      "evidences": [
+        {
+          "description": "Function 'get_req_header/2' implements Railway-oriented Monadic pipeline with 7 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn.ex:692:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.BasicAuth.auth/2",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/basic_auth.ex:41:1",
+      "evidences": [
+        {
+          "description": "Function 'auth/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/basic_auth.ex:41:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.BasicAuth.basic_auth/2",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/basic_auth.ex:98:1",
+      "evidences": [
+        {
+          "description": "Function 'basic_auth/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/basic_auth.ex:98:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.BasicAuth.parse_basic_auth/1",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/basic_auth.ex:123:1",
+      "evidences": [
+        {
+          "description": "Function 'parse_basic_auth/1' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/basic_auth.ex:123:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.MethodOverride.override_method/2",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/method_override.ex:54:1",
+      "evidences": [
+        {
+          "description": "Function 'override_method/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/method_override.ex:54:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Static.serve_range/5",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:285:1",
+      "evidences": [
+        {
+          "description": "Function 'serve_range/5' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:285:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Parsers.MULTIPART.multipart_type/1",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/multipart.ex:281:1",
+      "evidences": [
+        {
+          "description": "Function 'multipart_type/1' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/multipart.ex:281:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Conn.Query.decode_each/2",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn/query.ex:191:1",
+      "evidences": [
+        {
+          "description": "Function 'decode_each/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn/query.ex:191:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Session.CookieTest.apply_mfa/1",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/session/cookie_test.exs:62:1",
+      "evidences": [
+        {
+          "description": "Function 'apply_mfa/1' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/session/cookie_test.exs:62:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.do_forward/3",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug.ex:177:1",
+      "evidences": [
+        {
+          "description": "Function 'do_forward/3' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug.ex:177:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.RewriteOn.call/2",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex:44:1",
+      "evidences": [
+        {
+          "description": "Function 'call/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex:44:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.SSL.keynew/4",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:342:1",
+      "evidences": [
+        {
+          "description": "Function 'keynew/4' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex:342:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Static.etag_for_path/3",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:405:1",
+      "evidences": [
+        {
+          "description": "Function 'etag_for_path/3' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:405:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Static.path/2",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:462:1",
+      "evidences": [
+        {
+          "description": "Function 'path/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:462:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Static.merge_headers/2",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:484:1",
+      "evidences": [
+        {
+          "description": "Function 'merge_headers/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex:484:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Parsers.MULTIPART.parse_multipart/2",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/multipart.ex:142:1",
+      "evidences": [
+        {
+          "description": "Function 'parse_multipart/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/multipart.ex:142:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Parsers.URLENCODED.parse/5",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/urlencoded.ex:30:1",
+      "evidences": [
+        {
+          "description": "Function 'parse/5' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/urlencoded.ex:30:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Parsers.JSON.read_body/3",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/json.ex:85:1",
+      "evidences": [
+        {
+          "description": "Function 'read_body/3' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/json.ex:85:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Parsers.JSON.decode/3",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/json.ex:88:1",
+      "evidences": [
+        {
+          "description": "Function 'decode/3' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/json.ex:88:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Adapters.Test.Conn.conn/4",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/adapters/test/conn.ex:8:1",
+      "evidences": [
+        {
+          "description": "Function 'conn/4' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/adapters/test/conn.ex:8:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Plug.Session.COOKIE.derive/3",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/cookie.ex:166:1",
+      "evidences": [
+        {
+          "description": "Function 'derive/3' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/cookie.ex:166:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "string_to_atom_vulnerability",
+      "pattern_category": "safety",
+      "target_name": "Plug.Adapters.Test.Conn.conn/4",
+      "target_kind": "unsafe_atom_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/adapters/test/conn.ex:8:1",
+      "evidences": [
+        {
+          "description": "Safety Audit (Atom Exhaustion Risk): Function 'conn/4' in 'Plug.Adapters.Test.Conn' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion",
+          "weight": 0.8,
+          "rule_code": "DYNAMIC_STRING_TO_ATOM",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/adapters/test/conn.ex:8:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "string_to_atom_vulnerability",
+      "pattern_category": "safety",
+      "target_name": "Plug.Conn.Adapter.conn/5",
+      "target_kind": "unsafe_atom_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn/adapter.ex:37:1",
+      "evidences": [
+        {
+          "description": "Safety Audit (Atom Exhaustion Risk): Function 'conn/5' in 'Plug.Conn.Adapter' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion",
+          "weight": 0.8,
+          "rule_code": "DYNAMIC_STRING_TO_ATOM",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn/adapter.ex:37:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "string_to_atom_vulnerability",
+      "pattern_category": "safety",
+      "target_name": "Plug.Router.Utils.build_host_match/1",
+      "target_kind": "unsafe_atom_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router/utils.ex:47:1",
+      "evidences": [
+        {
+          "description": "Safety Audit (Atom Exhaustion Risk): Function 'build_host_match/1' in 'Plug.Router.Utils' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion",
+          "weight": 0.8,
+          "rule_code": "DYNAMIC_STRING_TO_ATOM",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router/utils.ex:47:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Plug.StaticTest.call/2",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/static_test.exs:13:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'call/2' in 'Plug.StaticTest' defines 1 pattern-matching clauses / 20 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/static_test.exs:13:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Plug.Parsers.JSONTest.decode!/1",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/parsers/json_test.exs:7:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'decode!/1' in 'Plug.Parsers.JSONTest' defines 11 pattern-matching clauses / 11 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/parsers/json_test.exs:7:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Plug.RewriteOn.call/2",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex:44:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'call/2' in 'Plug.RewriteOn' defines 11 pattern-matching clauses / 11 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex:44:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Plug.Conn.get_req_header/2",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn.ex:692:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'get_req_header/2' in 'Plug.Conn' defines 1 pattern-matching clauses / 99 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn.ex:692:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Plug.Builder.__before_compile__/1",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/builder.ex:172:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function '__before_compile__/1' in 'Plug.Builder' defines 1 pattern-matching clauses / 16 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/builder.ex:172:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Plug.Router.Utils.build_host_match/1",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router/utils.ex:47:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'build_host_match/1' in 'Plug.Router.Utils' defines 1 pattern-matching clauses / 15 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router/utils.ex:47:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Plug.TelemetryTest.attach/2",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/telemetry_test.exs:116:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Plug.TelemetryTest.attach/2, Plug.RouterTest.attach/2",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/telemetry_test.exs:116:1"
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

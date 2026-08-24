@@ -1,0 +1,1589 @@
+{
+  "project_path": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex",
+  "scanned_files_count": 97,
+  "total_detections_count": 72,
+  "elapsed_seconds": 0.047,
+  "summary_by_category": {
+    "otp_behaviour": 9,
+    "actor_concurrency": 1,
+    "functional_idiom": 13,
+    "structural": 14,
+    "behavioral": 21,
+    "safety": 2,
+    "principle": 12
+  },
+  "summary_by_confidence_level": {
+    "low": 0,
+    "medium": 1,
+    "high": 56,
+    "very_high": 15
+  },
+  "detections": [
+    {
+      "pattern_type": "gen_server",
+      "pattern_category": "otp_behaviour",
+      "target_name": "ReplicationTest",
+      "target_kind": "genserver_module",
+      "confidence": {
+        "score": 0.76,
+        "level": "high",
+        "percentage": "76%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/replication_connection_test.exs:1:1",
+      "evidences": [
+        {
+          "description": "Implements 3 core GenServer callback(s) (init/1, handle_call/3, handle_info/2)",
+          "weight": 0.6,
+          "rule_code": "GEN_SERVER_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/replication_connection_test.exs:1:1"
+        },
+        {
+          "description": "Provides canonical starter function 'start_link/1'",
+          "weight": 0.4,
+          "rule_code": "GEN_SERVER_START_LINK",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/replication_connection_test.exs:14:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "gen_server",
+      "pattern_category": "otp_behaviour",
+      "target_name": "SimpleConnectionTest",
+      "target_kind": "genserver_module",
+      "confidence": {
+        "score": 0.6,
+        "level": "medium",
+        "percentage": "60%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/simple_connection_test.exs:1:1",
+      "evidences": [
+        {
+          "description": "Implements 3 core GenServer callback(s) (init/1, handle_call/3, handle_info/2)",
+          "weight": 0.6,
+          "rule_code": "GEN_SERVER_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/simple_connection_test.exs:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "gen_server",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Postgrex.SimpleConnection",
+      "target_kind": "genserver_module",
+      "confidence": {
+        "score": 0.76,
+        "level": "high",
+        "percentage": "76%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:1:1",
+      "evidences": [
+        {
+          "description": "Implements 2 core GenServer callback(s) (init/1, handle_call/3)",
+          "weight": 0.6,
+          "rule_code": "GEN_SERVER_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:1:1"
+        },
+        {
+          "description": "Provides canonical starter function 'start_link/3'",
+          "weight": 0.4,
+          "rule_code": "GEN_SERVER_START_LINK",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:257:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "gen_server",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Postgrex.TypeServer",
+      "target_kind": "genserver_module",
+      "confidence": {
+        "score": 0.94,
+        "level": "very_high",
+        "percentage": "94%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_server.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.TypeServer' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)",
+          "weight": 0.75,
+          "rule_code": "GEN_SERVER_USE_DECLARATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_server.ex:1:1"
+        },
+        {
+          "description": "Implements 4 core GenServer callback(s) (init/1, handle_call/3, handle_cast/2, handle_info/2)",
+          "weight": 0.6,
+          "rule_code": "GEN_SERVER_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_server.ex:1:1"
+        },
+        {
+          "description": "Provides canonical starter function 'start_link/1'",
+          "weight": 0.4,
+          "rule_code": "GEN_SERVER_START_LINK",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_server.ex:12:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "gen_server",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Postgrex.Notifications",
+      "target_kind": "genserver_module",
+      "confidence": {
+        "score": 0.76,
+        "level": "high",
+        "percentage": "76%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/notifications.ex:1:1",
+      "evidences": [
+        {
+          "description": "Implements 3 core GenServer callback(s) (init/1, handle_call/3, handle_info/2)",
+          "weight": 0.6,
+          "rule_code": "GEN_SERVER_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/notifications.ex:1:1"
+        },
+        {
+          "description": "Provides canonical starter function 'start_link/1'",
+          "weight": 0.4,
+          "rule_code": "GEN_SERVER_START_LINK",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/notifications.ex:131:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "gen_server",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Postgrex.Parameters",
+      "target_kind": "genserver_module",
+      "confidence": {
+        "score": 0.94,
+        "level": "very_high",
+        "percentage": "94%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/parameters.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.Parameters' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)",
+          "weight": 0.75,
+          "rule_code": "GEN_SERVER_USE_DECLARATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/parameters.ex:1:1"
+        },
+        {
+          "description": "Implements 4 core GenServer callback(s) (init/1, handle_call/3, handle_cast/2, handle_info/2)",
+          "weight": 0.6,
+          "rule_code": "GEN_SERVER_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/parameters.ex:1:1"
+        },
+        {
+          "description": "Provides canonical starter function 'start_link/1'",
+          "weight": 0.4,
+          "rule_code": "GEN_SERVER_START_LINK",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/parameters.ex:9:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "gen_server",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Postgrex.SCRAM.LockedCache",
+      "target_kind": "genserver_module",
+      "confidence": {
+        "score": 0.94,
+        "level": "very_high",
+        "percentage": "94%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/scram/locked_cache.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.SCRAM.LockedCache' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)",
+          "weight": 0.75,
+          "rule_code": "GEN_SERVER_USE_DECLARATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/scram/locked_cache.ex:1:1"
+        },
+        {
+          "description": "Implements 3 core GenServer callback(s) (init/1, handle_call/3, handle_cast/2)",
+          "weight": 0.6,
+          "rule_code": "GEN_SERVER_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/scram/locked_cache.ex:1:1"
+        },
+        {
+          "description": "Provides canonical starter function 'start_link/1'",
+          "weight": 0.4,
+          "rule_code": "GEN_SERVER_START_LINK",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/scram/locked_cache.ex:69:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "supervisor",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Postgrex.TypeSupervisor",
+      "target_kind": "supervisor_module",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_supervisor.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.TypeSupervisor' adopts OTP Supervisor behaviour (`use Supervisor`)",
+          "weight": 0.75,
+          "rule_code": "SUPERVISOR_USE_DECLARATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_supervisor.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "task_async",
+      "pattern_category": "actor_concurrency",
+      "target_name": "PostGrex.SCRAM.LockedCacheTest.task_run/2",
+      "target_kind": "task_async_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/scram/locked_cache_test.exs:78:1",
+      "evidences": [
+        {
+          "description": "Function 'task_run/2' coordinates asynchronous parallel tasks / streams via Task module",
+          "weight": 0.8,
+          "rule_code": "TASK_ASYNC_CONCURRENCY",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/scram/locked_cache_test.exs:78:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "application",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Postgrex.App",
+      "target_kind": "application_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/app.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.App' coordinates top-level application startup lifecycle (`use Application`)",
+          "weight": 0.85,
+          "rule_code": "APPLICATION_OTP_STARTUP",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/app.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "protocol_polymorphism",
+      "pattern_category": "functional_idiom",
+      "target_name": "Enumerable.Postgrex.Stream",
+      "target_kind": "protocol_implementation",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/stream.ex:24:1",
+      "evidences": [
+        {
+          "description": "Implementation 'Enumerable.Postgrex.Stream' provides concrete protocol implementation for Postgrex.Stream",
+          "weight": 0.85,
+          "rule_code": "PROTOCOL_IMPLEMENTATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/stream.ex:24:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "protocol_polymorphism",
+      "pattern_category": "functional_idiom",
+      "target_name": "Collectable.Postgrex.Stream",
+      "target_kind": "protocol_implementation",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/stream.ex:54:1",
+      "evidences": [
+        {
+          "description": "Implementation 'Collectable.Postgrex.Stream' provides concrete protocol implementation for Postgrex.Stream",
+          "weight": 0.85,
+          "rule_code": "PROTOCOL_IMPLEMENTATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/stream.ex:54:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "protocol_polymorphism",
+      "pattern_category": "functional_idiom",
+      "target_name": "DBConnection.Query.Postgrex.Copy",
+      "target_kind": "protocol_implementation",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/stream.ex:91:1",
+      "evidences": [
+        {
+          "description": "Implementation 'DBConnection.Query.Postgrex.Copy' provides concrete protocol implementation for Postgrex.Copy",
+          "weight": 0.85,
+          "rule_code": "PROTOCOL_IMPLEMENTATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/stream.ex:91:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "protocol_polymorphism",
+      "pattern_category": "functional_idiom",
+      "target_name": "String.Chars.Postgrex.Copy",
+      "target_kind": "protocol_implementation",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/stream.ex:126:1",
+      "evidences": [
+        {
+          "description": "Implementation 'String.Chars.Postgrex.Copy' provides concrete protocol implementation for Postgrex.Copy",
+          "weight": 0.85,
+          "rule_code": "PROTOCOL_IMPLEMENTATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/stream.ex:126:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "protocol_polymorphism",
+      "pattern_category": "functional_idiom",
+      "target_name": "DBConnection.Query.Postgrex.Query",
+      "target_kind": "protocol_implementation",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/query.ex:54:1",
+      "evidences": [
+        {
+          "description": "Implementation 'DBConnection.Query.Postgrex.Query' provides concrete protocol implementation for Postgrex.Query",
+          "weight": 0.85,
+          "rule_code": "PROTOCOL_IMPLEMENTATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/query.ex:54:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "protocol_polymorphism",
+      "pattern_category": "functional_idiom",
+      "target_name": "Table.Reader.Postgrex.Result",
+      "target_kind": "protocol_implementation",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/result.ex:29:1",
+      "evidences": [
+        {
+          "description": "Implementation 'Table.Reader.Postgrex.Result' provides concrete protocol implementation for Postgrex.Result",
+          "weight": 0.85,
+          "rule_code": "PROTOCOL_IMPLEMENTATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/result.ex:29:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "protocol_polymorphism",
+      "pattern_category": "functional_idiom",
+      "target_name": "DBConnection.Query.Postgrex.TextQuery",
+      "target_kind": "protocol_implementation",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/text_query.ex:7:1",
+      "evidences": [
+        {
+          "description": "Implementation 'DBConnection.Query.Postgrex.TextQuery' provides concrete protocol implementation for Postgrex.TextQuery",
+          "weight": 0.85,
+          "rule_code": "PROTOCOL_IMPLEMENTATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/text_query.ex:7:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "protocol_polymorphism",
+      "pattern_category": "functional_idiom",
+      "target_name": "DBConnection.Query.Postgrex.Parameters",
+      "target_kind": "protocol_implementation",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/parameters.ex:74:1",
+      "evidences": [
+        {
+          "description": "Implementation 'DBConnection.Query.Postgrex.Parameters' provides concrete protocol implementation for Postgrex.Parameters",
+          "weight": 0.85,
+          "rule_code": "PROTOCOL_IMPLEMENTATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/parameters.ex:74:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.TestHelper",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/test_helper.exs:231:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.TestHelper' defines 7 compile-time macro(s) for DSL metaprogramming",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/test_helper.exs:231:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.ReplicationConnection",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.ReplicationConnection' defines 1 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.Protocol",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.Protocol' defines 1 compile-time macro(s) for DSL metaprogramming",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.BinaryExtension",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/binary_extension.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.BinaryExtension' defines 1 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/binary_extension.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.BinaryUtils",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/binary_utils.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.BinaryUtils' defines 1 compile-time macro(s) for DSL metaprogramming",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/binary_utils.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "StreamTest.range_x_range/5",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/stream_test.exs:217:1",
+      "evidences": [
+        {
+          "description": "Function 'range_x_range/5' composes functional data transformations across a 4-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/stream_test.exs:217:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "StreamTest.range_x_cast/3",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/stream_test.exs:248:1",
+      "evidences": [
+        {
+          "description": "Function 'range_x_cast/3' composes functional data transformations across a 4-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/stream_test.exs:248:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Postgrex.Protocol.new_status/2",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:61:1",
+      "evidences": [
+        {
+          "description": "Function 'new_status/2' composes functional data transformations across a 23-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:61:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Postgrex.Utils.parse_version/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/utils.ex:69:1",
+      "evidences": [
+        {
+          "description": "Function 'parse_version/1' composes functional data transformations across a 4-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/utils.ex:69:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Postgrex.Utils.default_opts/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/utils.ex:90:1",
+      "evidences": [
+        {
+          "description": "Function 'default_opts/1' composes functional data transformations across a 8-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/utils.ex:90:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "ets_registry",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.Protocol",
+      "target_kind": "registry_ets_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.Protocol' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching",
+          "weight": 0.8,
+          "rule_code": "ETS_REGISTRY_LOOKUP",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "ets_registry",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.Types",
+      "target_kind": "registry_ets_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.Types' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching",
+          "weight": 0.8,
+          "rule_code": "ETS_REGISTRY_LOOKUP",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "ets_registry",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.TypeSupervisor",
+      "target_kind": "registry_ets_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_supervisor.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.TypeSupervisor' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching",
+          "weight": 0.8,
+          "rule_code": "ETS_REGISTRY_LOOKUP",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_supervisor.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "ets_registry",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.Parameters",
+      "target_kind": "registry_ets_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/parameters.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.Parameters' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching",
+          "weight": 0.8,
+          "rule_code": "ETS_REGISTRY_LOOKUP",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/parameters.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "ets_registry",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.SCRAM.LockedCache",
+      "target_kind": "registry_ets_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/scram/locked_cache.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.SCRAM.LockedCache' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching",
+          "weight": 0.8,
+          "rule_code": "ETS_REGISTRY_LOOKUP",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/scram/locked_cache.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "adapter_behaviour",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.ReplicationConnection",
+      "target_kind": "adapter_behaviour_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.ReplicationConnection' defines interchangeable Adapter Behaviour contract with 7 callback(s) (init/1, handle_connect/1, handle_disconnect/1, handle_data/2, handle_info/2, handle_call/2, handle_result/1)",
+          "weight": 0.8,
+          "rule_code": "ADAPTER_BEHAVIOUR_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "adapter_behaviour",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.SimpleConnection",
+      "target_kind": "adapter_behaviour_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.SimpleConnection' defines interchangeable Adapter Behaviour contract with 7 callback(s) (init/1, notify/3, handle_connect/1, handle_disconnect/1, handle_call/3, handle_info/2, handle_result/1)",
+          "weight": 0.8,
+          "rule_code": "ADAPTER_BEHAVIOUR_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "adapter_behaviour",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.Extension",
+      "target_kind": "adapter_behaviour_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extension.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.Extension' defines interchangeable Adapter Behaviour contract with 6 callback(s) (init/1, prelude/1, matching/1, format/1, encode/1, decode/1)",
+          "weight": 0.8,
+          "rule_code": "ADAPTER_BEHAVIOUR_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extension.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "adapter_behaviour",
+      "pattern_category": "structural",
+      "target_name": "Postgrex.SuperExtension",
+      "target_kind": "adapter_behaviour_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/super_extension.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.SuperExtension' defines interchangeable Adapter Behaviour contract with 6 callback(s) (init/1, matching/1, format/1, oids/1, encode/1, decode/1)",
+          "weight": 0.8,
+          "rule_code": "ADAPTER_BEHAVIOUR_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/super_extension.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "command_tagged_tuple",
+      "pattern_category": "behavioral",
+      "target_name": "ReplicationTest.handle_call/3",
+      "target_kind": "command_dispatcher",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/replication_connection_test.exs:91:1",
+      "evidences": [
+        {
+          "description": "Function handle_call/3 in 'ReplicationTest' pattern matches on 5 distinct Command tagged tuples",
+          "weight": 0.75,
+          "rule_code": "COMMAND_TAGGED_TUPLE_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/replication_connection_test.exs:91:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "command_tagged_tuple",
+      "pattern_category": "behavioral",
+      "target_name": "SimpleConnectionTest.handle_call/3",
+      "target_kind": "command_dispatcher",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/simple_connection_test.exs:38:1",
+      "evidences": [
+        {
+          "description": "Function handle_call/3 in 'SimpleConnectionTest' pattern matches on 2 distinct Command tagged tuples",
+          "weight": 0.75,
+          "rule_code": "COMMAND_TAGGED_TUPLE_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/simple_connection_test.exs:38:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "command_tagged_tuple",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.SimpleConnection.handle_call/3",
+      "target_kind": "command_dispatcher",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:26:1",
+      "evidences": [
+        {
+          "description": "Function handle_call/3 in 'Postgrex.SimpleConnection' pattern matches on 3 distinct Command tagged tuples",
+          "weight": 0.75,
+          "rule_code": "COMMAND_TAGGED_TUPLE_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:26:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "command_tagged_tuple",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.TypeServer.handle_call/3",
+      "target_kind": "command_dispatcher",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_server.ex:73:1",
+      "evidences": [
+        {
+          "description": "Function handle_call/3 in 'Postgrex.TypeServer' pattern matches on 3 distinct Command tagged tuples",
+          "weight": 0.75,
+          "rule_code": "COMMAND_TAGGED_TUPLE_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_server.ex:73:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "command_tagged_tuple",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.Notifications.handle_call/3",
+      "target_kind": "command_dispatcher",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/notifications.ex:250:1",
+      "evidences": [
+        {
+          "description": "Function handle_call/3 in 'Postgrex.Notifications' pattern matches on 2 distinct Command tagged tuples",
+          "weight": 0.75,
+          "rule_code": "COMMAND_TAGGED_TUPLE_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/notifications.ex:250:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.binary_query/4",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex.ex:333:1",
+      "evidences": [
+        {
+          "description": "Function 'binary_query/4' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex.ex:333:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.ReplicationConnection.handle_data/2",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:90:1",
+      "evidences": [
+        {
+          "description": "Function 'handle_data/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:90:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.ReplicationConnection.decode_lsn/1",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:446:1",
+      "evidences": [
+        {
+          "description": "Function 'decode_lsn/1' implements Railway-oriented Monadic pipeline with 5 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:446:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.ReplicationConnection.handle/5",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:604:1",
+      "evidences": [
+        {
+          "description": "Function 'handle/5' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:604:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.Protocol.new_status/2",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:61:1",
+      "evidences": [
+        {
+          "description": "Function 'new_status/2' implements Railway-oriented Monadic pipeline with 124 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:61:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.SimpleConnection.handle/5",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:455:1",
+      "evidences": [
+        {
+          "description": "Function 'handle/5' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:455:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.ReplicationConnection.handle/5",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:604:1",
+      "evidences": [
+        {
+          "description": "Function 'handle/5' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:604:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.SimpleConnection.handle_event/4",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:350:1",
+      "evidences": [
+        {
+          "description": "Function 'handle_event/4' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:350:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.SimpleConnection.handle/5",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:455:1",
+      "evidences": [
+        {
+          "description": "Function 'handle/5' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:455:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.Types.find/4",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex:180:1",
+      "evidences": [
+        {
+          "description": "Function 'find/4' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex:180:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.Types.encode_params/3",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex:380:1",
+      "evidences": [
+        {
+          "description": "Function 'encode_params/3' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex:380:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.Types.decode_rows/4",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex:388:1",
+      "evidences": [
+        {
+          "description": "Function 'decode_rows/4' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex:388:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.Types.decode_simple/2",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex:394:1",
+      "evidences": [
+        {
+          "description": "Function 'decode_simple/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex:394:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.Utils.default_opts/1",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/utils.ex:90:1",
+      "evidences": [
+        {
+          "description": "Function 'default_opts/1' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/utils.ex:90:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "state_machine_statex",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.ReplicationConnection",
+      "target_kind": "state_machine_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.ReplicationConnection' implements Finite State Machine behaviour (`@behaviour :gen_statem`)",
+          "weight": 0.85,
+          "rule_code": "GEN_STATEM_ELIXIR",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "state_machine_statex",
+      "pattern_category": "behavioral",
+      "target_name": "Postgrex.SimpleConnection",
+      "target_kind": "state_machine_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Postgrex.SimpleConnection' implements Finite State Machine behaviour (`@behaviour :gen_statem`)",
+          "weight": 0.85,
+          "rule_code": "GEN_STATEM_ELIXIR",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unbounded_process_spawn",
+      "pattern_category": "safety",
+      "target_name": "Postgrex.Protocol.new_status/2",
+      "target_kind": "unsupervised_spawn_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:61:1",
+      "evidences": [
+        {
+          "description": "Safety Audit (Unsupervised Process): Function 'new_status/2' in 'Postgrex.Protocol' calls raw `spawn/spawn_link`; use `Task.Supervisor` for fault tolerance and supervision",
+          "weight": 0.8,
+          "rule_code": "UNSUPERVISED_PROCESS_SPAWN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:61:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "string_to_atom_vulnerability",
+      "pattern_category": "safety",
+      "target_name": "Postgrex.Protocol.new_status/2",
+      "target_kind": "unsafe_atom_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:61:1",
+      "evidences": [
+        {
+          "description": "Safety Audit (Atom Exhaustion Risk): Function 'new_status/2' in 'Postgrex.Protocol' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion",
+          "weight": 0.8,
+          "rule_code": "DYNAMIC_STRING_TO_ATOM",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:61:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Postgrex.Protocol.new_status/2",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:61:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'new_status/2' in 'Postgrex.Protocol' defines 1 pattern-matching clauses / 172 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex:61:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Postgrex.TypeModule.directives/2",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_module.ex:61:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'directives/2' in 'Postgrex.TypeModule' defines 1 pattern-matching clauses / 21 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_module.ex:61:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Postgrex.Extensions.Interval.encode/1",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/interval.ex:33:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'encode/1' in 'Postgrex.Extensions.Interval' defines 1 pattern-matching clauses / 12 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/interval.ex:33:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "NotificationTest.disconnect/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/notification_test.exs:250:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): NotificationTest.disconnect/1, SimpleConnectionTest.disconnect/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/notification_test.exs:250:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Postgrex.ReplicationConnection._format_connection_error/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:562:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.ReplicationConnection._format_connection_error/1, Postgrex.SimpleConnection._format_connection_error/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:562:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Postgrex.ReplicationConnection.reconnect_or_stop/23",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:668:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.ReplicationConnection.reconnect_or_stop/23, Postgrex.SimpleConnection.reconnect_or_stop/15",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex:668:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Postgrex.Extensions.Ltree.encode/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/ltree.ex:10:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.Extensions.Ltree.encode/1, Postgrex.Extensions.Lquery.encode/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/ltree.ex:10:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Postgrex.Extensions.TimeTZ.encode/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/timetz.ex:12:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.Extensions.TimeTZ.encode/1, Postgrex.Extensions.Time.encode/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/timetz.ex:12:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Postgrex.Extensions.TimeTZ.microsecond_to_elixir/2",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/timetz.ex:56:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.Extensions.TimeTZ.microsecond_to_elixir/2, Postgrex.Extensions.Time.microsecond_to_elixir/2",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/timetz.ex:56:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Postgrex.Extensions.VoidBinary.encode/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/void_binary.ex:8:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.Extensions.VoidBinary.encode/1, Postgrex.Extensions.VoidText.encode/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/void_binary.ex:8:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Postgrex.Extensions.TimestampTZ.decode/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/timestamptz.ex:30:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.Extensions.TimestampTZ.decode/1, Postgrex.Extensions.Timestamp.decode/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/timestamptz.ex:30:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "circular_module_dependency",
+      "pattern_category": "principle",
+      "target_name": "Postgrex.TypeModule ⇄ Postgrex.Types",
+      "target_kind": "module_cycle",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_module.ex:1:1",
+      "evidences": [
+        {
+          "description": "Circular Module Dependency detected: Postgrex.TypeModule ➔ Postgrex.Types ➔ Postgrex.TypeModule",
+          "weight": 0.85,
+          "rule_code": "CIRCULAR_MODULE_CYCLE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_module.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

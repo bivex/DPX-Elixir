@@ -1,0 +1,229 @@
+{
+  "project_path": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason",
+  "scanned_files_count": 24,
+  "total_detections_count": 10,
+  "elapsed_seconds": 0.0119,
+  "summary_by_category": {
+    "functional_idiom": 4,
+    "structural": 4,
+    "principle": 2
+  },
+  "summary_by_confidence_level": {
+    "low": 0,
+    "medium": 0,
+    "high": 7,
+    "very_high": 3
+  },
+  "detections": [
+    {
+      "pattern_type": "protocol_polymorphism",
+      "pattern_category": "functional_idiom",
+      "target_name": "Jason.Encoder",
+      "target_kind": "protocol_definition",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/encoder.ex:1:1",
+      "evidences": [
+        {
+          "description": "Protocol 'Jason.Encoder' defines extensible polymorphism contract via defprotocol",
+          "weight": 0.85,
+          "rule_code": "PROTOCOL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/encoder.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Jason.Decoder",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/decoder.ex:25:1",
+      "evidences": [
+        {
+          "description": "Module 'Jason.Decoder' defines 1 compile-time macro(s) for DSL metaprogramming",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/decoder.ex:25:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Jason.Codegen",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/codegen.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Jason.Codegen' defines 2 compile-time macro(s) for DSL metaprogramming",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/codegen.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Jason.Helpers",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/helpers.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Jason.Helpers' defines 1 compile-time macro(s) for DSL metaprogramming",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/helpers.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "macro_metaprogramming",
+      "pattern_category": "structural",
+      "target_name": "Jason.Sigil",
+      "target_kind": "macro_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/sigil.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Jason.Sigil' defines 2 compile-time macro(s) for DSL metaprogramming",
+          "weight": 0.8,
+          "rule_code": "MACRO_DSL_DEFINITION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/sigil.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Jason.EncoderTest.encode/2",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/test/encode_test.exs:198:1",
+      "evidences": [
+        {
+          "description": "Function 'encode/2' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/test/encode_test.exs:198:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Jason.Codegen.jump_table/2",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/codegen.ex:6:1",
+      "evidences": [
+        {
+          "description": "Function 'jump_table/2' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/codegen.ex:6:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Jason.Codegen.jump_table/3",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/codegen.ex:13:1",
+      "evidences": [
+        {
+          "description": "Function 'jump_table/3' composes functional data transformations across a 4-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/codegen.ex:13:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "large_module_srp",
+      "pattern_category": "principle",
+      "target_name": "Jason.Decoder",
+      "target_kind": "god_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/decoder.ex:25:1",
+      "evidences": [
+        {
+          "description": "SRP Violation (God Module): Module 'Jason.Decoder' defines 3 public functions and 35 routines, indicating multiple mixed domain responsibilities",
+          "weight": 0.85,
+          "rule_code": "SRP_GOD_MODULE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/decoder.ex:25:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "large_module_srp",
+      "pattern_category": "principle",
+      "target_name": "Jason.Encode",
+      "target_kind": "god_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/encode.ex:14:1",
+      "evidences": [
+        {
+          "description": "SRP Violation (God Module): Module 'Jason.Encode' defines 12 public functions and 37 routines, indicating multiple mixed domain responsibilities",
+          "weight": 0.85,
+          "rule_code": "SRP_GOD_MODULE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/jason/lib/encode.ex:14:1"
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

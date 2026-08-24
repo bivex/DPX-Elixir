@@ -1,0 +1,839 @@
+{
+  "project_path": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki",
+  "scanned_files_count": 124,
+  "total_detections_count": 39,
+  "elapsed_seconds": 0.1581,
+  "summary_by_category": {
+    "functional_idiom": 15,
+    "structural": 1,
+    "behavioral": 4,
+    "principle": 19
+  },
+  "summary_by_confidence_level": {
+    "low": 0,
+    "medium": 0,
+    "high": 38,
+    "very_high": 1
+  },
+  "detections": [
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Floki.Mixfile.aliases/0",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/mix.exs:58:1",
+      "evidences": [
+        {
+          "description": "Function 'aliases/0' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/mix.exs:58:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "TokenizerTestLoader.tokenization_result/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/test/support/tokenizer_test_loader.ex:16:1",
+      "evidences": [
+        {
+          "description": "Function 'tokenization_result/1' composes functional data transformations across a 5-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/test/support/tokenizer_test_loader.ex:16:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Mix.Tasks.GenerateTokenizerTests.run/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_tokenizer_tests.ex:23:1",
+      "evidences": [
+        {
+          "description": "Function 'run/1' composes functional data transformations across a 7-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_tokenizer_tests.ex:23:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Mix.Tasks.GenerateTokenizerTests.save_tests/4",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_tokenizer_tests.ex:54:1",
+      "evidences": [
+        {
+          "description": "Function 'save_tests/4' composes functional data transformations across a 4-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_tokenizer_tests.ex:54:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Mix.Tasks.GenerateEntities.run/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_entities.ex:11:1",
+      "evidences": [
+        {
+          "description": "Function 'run/1' composes functional data transformations across a 4-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_entities.ex:11:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Floki.RawHTML.self_closing_tags/0",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/raw_html.ex:26:1",
+      "evidences": [
+        {
+          "description": "Function 'self_closing_tags/0' composes functional data transformations across a 5-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/raw_html.ex:26:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Floki.HTMLTree.do_delete/4",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_tree.ex:129:1",
+      "evidences": [
+        {
+          "description": "Function 'do_delete/4' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_tree.ex:129:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Floki.CSSEscape.escape/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/css_escape.ex:21:1",
+      "evidences": [
+        {
+          "description": "Function 'escape/1' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/css_escape.ex:21:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Floki.FlatText.get/3",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/flat_text.ex:32:1",
+      "evidences": [
+        {
+          "description": "Function 'get/3' composes functional data transformations across a 4-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/flat_text.ex:32:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Floki.Selector.AttributeSelector.match?/2",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/attribute_selector.ex:49:1",
+      "evidences": [
+        {
+          "description": "Function 'match?/2' composes functional data transformations across a 19-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/attribute_selector.ex:49:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Floki.Selector.Functional.parse_num/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/functional.ex:36:1",
+      "evidences": [
+        {
+          "description": "Function 'parse_num/1' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/functional.ex:36:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Floki.Selector.PseudoClass.match_nth_child?/3",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:31:1",
+      "evidences": [
+        {
+          "description": "Function 'match_nth_child?/3' composes functional data transformations across a 4-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:31:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Floki.Selector.PseudoClass.match_nth_of_type?/3",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:39:1",
+      "evidences": [
+        {
+          "description": "Function 'match_nth_of_type?/3' composes functional data transformations across a 5-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:39:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Floki.Selector.PseudoClass.match_nth_last_child?/3",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:48:1",
+      "evidences": [
+        {
+          "description": "Function 'match_nth_last_child?/3' composes functional data transformations across a 3-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:48:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Floki.Selector.PseudoClass.match_nth_last_of_type?/3",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:55:1",
+      "evidences": [
+        {
+          "description": "Function 'match_nth_last_of_type?/3' composes functional data transformations across a 4-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:55:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "adapter_behaviour",
+      "pattern_category": "structural",
+      "target_name": "Floki.HTMLParser",
+      "target_kind": "adapter_behaviour_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Floki.HTMLParser' defines interchangeable Adapter Behaviour contract with 4 callback(s) (parse_document/1, parse_fragment/1, parse_document_with_attributes_as_maps/1, parse_fragment_with_attributes_as_maps/1)",
+          "weight": 0.8,
+          "rule_code": "ADAPTER_BEHAVIOUR_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Floki.HTMLTree.do_delete/4",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_tree.ex:129:1",
+      "evidences": [
+        {
+          "description": "Function 'do_delete/4' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_tree.ex:129:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Floki.HTMLParser.Html5ever.parse_document/2",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:7:1",
+      "evidences": [
+        {
+          "description": "Function 'parse_document/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:7:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Floki.HTMLParser.Html5ever.parse_document_with_attributes_as_maps/2",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:28:1",
+      "evidences": [
+        {
+          "description": "Function 'parse_document_with_attributes_as_maps/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:28:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "strategy_dispatch",
+      "pattern_category": "behavioral",
+      "target_name": "Floki.HTMLParser.Html5ever.parse_fragment_with_attributes_as_maps/2",
+      "target_kind": "strategy_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:33:1",
+      "evidences": [
+        {
+          "description": "Function 'parse_fragment_with_attributes_as_maps/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules",
+          "weight": 0.75,
+          "rule_code": "STRATEGY_DYNAMIC_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:33:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "large_module_srp",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTML.Tokenizer",
+      "target_kind": "god_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1:1",
+      "evidences": [
+        {
+          "description": "SRP Violation (God Module): Module 'Floki.HTML.Tokenizer' defines 14 public functions and 126 routines, indicating multiple mixed domain responsibilities",
+          "weight": 0.85,
+          "rule_code": "SRP_GOD_MODULE",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Floki.Selector.pseudo_class_match?/3",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector.ex:195:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'pseudo_class_match?/3' in 'Floki.Selector' defines 16 pattern-matching clauses / 16 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector.ex:195:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Floki.Finder.traverse_html_tuples/3",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/finder.ex:172:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'traverse_html_tuples/3' in 'Floki.Finder' defines 10 pattern-matching clauses / 10 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/finder.ex:172:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Floki.DeepText.get_text/6",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/deep_text.ex:30:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'get_text/6' in 'Floki.DeepText' defines 14 pattern-matching clauses / 14 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/deep_text.ex:30:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Floki.Selector.AttributeSelector.match?/2",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/attribute_selector.ex:49:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'match?/2' in 'Floki.Selector.AttributeSelector' defines 13 pattern-matching clauses / 13 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/attribute_selector.ex:49:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Floki.Selector.Parser.do_parse/2",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/parser.ex:40:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'do_parse/2' in 'Floki.Selector.Parser' defines 22 pattern-matching clauses / 22 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/parser.ex:40:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTML.NumericCharref.to_unicode_number/1",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/numeric_charref.ex:5:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'to_unicode_number/1' in 'Floki.HTML.NumericCharref' defines 30 pattern-matching clauses / 30 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/numeric_charref.ex:5:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "cyclomatic_complexity_kiss",
+      "pattern_category": "principle",
+      "target_name": "Floki.Entities.Codepoints.get/1",
+      "target_kind": "complex_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/entities/codepoints.ex:10:1",
+      "evidences": [
+        {
+          "description": "KISS Violation (High Complexity): Function 'get/1' in 'Floki.Entities.Codepoints' defines 2232 pattern-matching clauses / 2232 branches; decompose into smaller routines",
+          "weight": 0.75,
+          "rule_code": "KISS_EXCESSIVE_CLAUSES",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/entities/codepoints.ex:10:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTMLParser.Html5ever.parse_document_with_attributes_as_maps/2",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:28:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.Html5ever.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.Html5ever.parse_fragment_with_attributes_as_maps/2",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:28:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTMLParser.FastHtml.parse_document_with_attributes_as_maps/2",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/fast_html.ex:18:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.FastHtml.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.FastHtml.parse_fragment_with_attributes_as_maps/2",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/fast_html.ex:18:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTMLParser.Mochiweb.parse_document_with_attributes_as_maps/2",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/mochiweb.ex:27:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.Mochiweb.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.Mochiweb.parse_fragment_with_attributes_as_maps/2",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/mochiweb.ex:27:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTML.Tokenizer.script_data_double_escaped/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:992:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.script_data_double_escaped/1, Floki.HTML.Tokenizer.script_data_double_escaped_dash/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:992:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTML.Tokenizer.after_attribute_name/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1275:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 7 location(s): Floki.HTML.Tokenizer.after_attribute_name/1, Floki.HTML.Tokenizer.attribute_value_unquoted/1, Floki.HTML.Tokenizer.after_attribute_value_quoted/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1275:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTML.Tokenizer.comment_start/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1574:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 3 location(s): Floki.HTML.Tokenizer.comment_start/1, Floki.HTML.Tokenizer.comment_start_dash/1, Floki.HTML.Tokenizer.comment_end_bang/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1574:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTML.Tokenizer.after_doctype_public_keyword/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1987:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_public_keyword/1, Floki.HTML.Tokenizer.before_doctype_public_identifier/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1987:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTML.Tokenizer.doctype_public_identifier_double_quoted/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2116:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.doctype_public_identifier_double_quoted/1, Floki.HTML.Tokenizer.doctype_public_identifier_single_quoted/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2116:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTML.Tokenizer.after_doctype_system_keyword/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2338:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_system_keyword/1, Floki.HTML.Tokenizer.before_doctype_system_identifier/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2338:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTML.Tokenizer.doctype_system_identifier_double_quoted/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2466:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.doctype_system_identifier_double_quoted/1, Floki.HTML.Tokenizer.doctype_system_identifier_single_quoted/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2466:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "duplicate_code_dry",
+      "pattern_category": "principle",
+      "target_name": "Floki.HTML.Tokenizer.after_doctype_system_identifier/1",
+      "target_kind": "dry_duplicated_code",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2576:1",
+      "evidences": [
+        {
+          "description": "DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_system_identifier/1, Floki.HTML.Tokenizer.bogus_doctype/1",
+          "weight": 0.8,
+          "rule_code": "DRY_CODE_DUPLICATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2576:1"
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

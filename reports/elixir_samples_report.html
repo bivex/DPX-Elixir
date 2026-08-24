@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💧 DPX-Elixir: Architecture & OTP Dashboard - elixir_samples</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.3/semantic.min.css">
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: #151b2b;
+            --border-color: #232d42;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+        body {
+            background-color: var(--bg-main) !important;
+            color: var(--text-primary) !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 30px 15px;
+        }
+        .ui.container {
+            max-width: 1200px !important;
+        }
+        .header-box {
+            background: linear-gradient(135deg, #4c1d95 0%, #1e1b4b 100%);
+            border: 1px solid #6d28d9;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        .kpi-card {
+            background: var(--bg-card) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 10px !important;
+            padding: 16px !important;
+            text-align: center;
+        }
+        .pattern-card {
+            background: var(--bg-card) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 10px !important;
+            margin-bottom: 16px !important;
+            padding: 20px !important;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .pattern-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border-color: #a855f7 !important;
+        }
+        .evidence-box {
+            background: #0b0f19;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-top: 12px;
+            border-left: 3px solid #a855f7;
+            font-size: 13px;
+        }
+        .code-pill {
+            background: #1e293b;
+            color: #c084fc;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ui container">
+        <!-- Header -->
+        <div class="header-box">
+            <div class="ui grid stackable middle aligned">
+                <div class="ten wide column">
+                    <h1 class="ui header inverted" style="margin: 0; font-size: 28px;">
+                        💧 DPX-Elixir: OTP Architecture & Pattern Dashboard
+                        <div class="sub header" style="color: #ddd6fe; margin-top: 6px;">
+                            Static Analysis, OTP Behaviours, Concurrency & Phoenix Contexts for <strong>elixir_samples</strong>
+                        </div>
+                    </h1>
+                </div>
+                <div class="six wide column right aligned">
+                    <button id="copyLlmBtn" class="ui purple button" onclick="copyArchMapForLlm()">
+                        <i class="copy icon"></i> Copy Architecture Map for LLM
+                    </button>
+                    <textarea id="llmArchMapRaw" style="display:none;"># 💧 DPX-Elixir: Codebase Architecture Map &amp; Refactoring Analysis
+
+## 📌 Project Overview
+- **Target Project:** `elixir_samples`
+- **Files Scanned:** `5`
+- **Total Architecture Findings:** `11`
+- **⚠️ Violations / Smells:** `3`
+- **🔷 OTP Behaviours &amp; Patterns:** `8`
+- **✅ Clean Adherences:** `0`
+
+---
+
+## 🎯 Task for AI / LLM Elixir / OTP Architect
+&gt; **Prompt Instructions:**
+&gt; 1. **Analyze Supervision &amp; GenServers:** Review GenServers, DynamicSupervisors, and Task async streams.
+&gt; 2. **Review Functional Pipelines:** Audit Railway `with` pipelines and `|&gt;` data flow.
+&gt; 3. **Propose Idiomatic Elixir Refactorings:** Suggest Phoenix Context boundaries, Registry process lookups, or Protocol polymorphism.
+&gt; 4. **Safety Improvements:** Eliminate dynamic `String.to_atom/1`, defensive `rescue _ -&gt; nil`, and unsupervised `spawn` calls.
+
+---
+
+## 🔷 Active OTP Behaviours &amp; Design Patterns (8 instances)
+### Pattern: `ADAPTER_BEHAVIOUR` (1 instances)
+- **Core.OrderServer** (adapter_behaviour_module, confidence 80%) in `/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1`
+  - *Summary:* Module &#x27;Core.OrderServer&#x27; defines interchangeable Adapter Behaviour contract with 1 callback(s) (format_order/1)
+### Pattern: `COMMAND_TAGGED_TUPLE` (1 instances)
+- **Core.OrderServer.handle_call/3** (command_dispatcher, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:22`
+  - *Summary:* Function handle_call/3 in &#x27;Core.OrderServer&#x27; pattern matches on 2 distinct Command tagged tuples
+### Pattern: `FACADE_CONTEXT` (1 instances)
+- **Core.Accounts** (context_facade_module, confidence 80%) in `/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/accounts_facade.ex:1`
+  - *Summary:* Module &#x27;Core.Accounts&#x27; serves as a Phoenix Context Facade encapsulating business operations (get_user!, list_users, create_user, update_user)
+### Pattern: `GEN_SERVER` (1 instances)
+- **Core.OrderServer** (genserver_module, confidence 94%) in `/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1`
+  - *Summary:* Module &#x27;Core.OrderServer&#x27; explicitly adopts OTP GenServer actor behaviour (`use GenServer`)
+### Pattern: `PIPELINE_OPERATOR` (1 instances)
+- **Core.OrderPipeline.process_checkout/1** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_pipeline.ex:6`
+  - *Summary:* Function &#x27;process_checkout/1&#x27; composes functional data transformations across a 5-stage pipe (`|&gt;`)
+### Pattern: `PLUG_PIPELINE` (1 instances)
+- **Core.OrderServer** (plug_module, confidence 85%) in `/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1`
+  - *Summary:* Module &#x27;Core.OrderServer&#x27; coordinates HTTP connection middleware processing pipeline (`Plug`)
+### Pattern: `SUPERVISOR` (1 instances)
+- **Core.AppSupervisor** (supervisor_module, confidence 91%) in `/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/app_supervisor.ex:1`
+  - *Summary:* Module &#x27;Core.AppSupervisor&#x27; adopts OTP Supervisor behaviour (`use Supervisor`)
+### Pattern: `WITH_MONADIC_PIPELINE` (1 instances)
+- **Core.OrderPipeline.execute_payment/2** (railway_pipeline_function, confidence 80%) in `/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_pipeline.ex:15`
+  - *Summary:* Function &#x27;execute_payment/2&#x27; implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)
+
+---
+
+## ⚠️ Architectural Violations &amp; Code Smells (3 instances)
+### Violation: `DEFENSIVE_RESCUE_SMELL` (1 occurrences)
+- **Core.BadWorker.defensive_rescue_antipattern/1** (85%) in `/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:16`
+  - *Risk / Smell:* Let-It-Crash Violation: Function &#x27;defensive_rescue_antipattern/1&#x27; in &#x27;Core.BadWorker&#x27; defensively swallows errors (`rescue _ -&gt; nil`); let processes fail fast and restart cleanly via Supervisor
+  - *Evidence:* `+85%` [DEFENSIVE_RESCUE_SWALLOW] Let-It-Crash Violation: Function &#x27;defensive_rescue_antipattern/1&#x27; in &#x27;Core.BadWorker&#x27; defensively swallows errors (`rescue _ -&gt; nil`); let processes fail fast and restart cleanly via Supervisor
+### Violation: `STRING_TO_ATOM_VULNERABILITY` (1 occurrences)
+- **Core.BadWorker.unsafe_handler/1** (80%) in `/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:6`
+  - *Risk / Smell:* Safety Audit (Atom Exhaustion Risk): Function &#x27;unsafe_handler/1&#x27; in &#x27;Core.BadWorker&#x27; calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion
+  - *Evidence:* `+80%` [DYNAMIC_STRING_TO_ATOM] Safety Audit (Atom Exhaustion Risk): Function &#x27;unsafe_handler/1&#x27; in &#x27;Core.BadWorker&#x27; calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion
+### Violation: `UNBOUNDED_PROCESS_SPAWN` (1 occurrences)
+- **Core.BadWorker.unsafe_handler/1** (80%) in `/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:6`
+  - *Risk / Smell:* Safety Audit (Unsupervised Process): Function &#x27;unsafe_handler/1&#x27; in &#x27;Core.BadWorker&#x27; calls raw `spawn/spawn_link`; use `Task.Supervisor` for fault tolerance and supervision
+  - *Evidence:* `+80%` [UNSUPERVISED_PROCESS_SPAWN] Safety Audit (Unsupervised Process): Function &#x27;unsafe_handler/1&#x27; in &#x27;Core.BadWorker&#x27; calls raw `spawn/spawn_link`; use `Task.Supervisor` for fault tolerance and supervision
+
+---
+
+## 🗺️ Module &amp; File Hotspots Distribution
+- **`order_server.ex`**: 4 findings (0 violations, 4 patterns, 0 adherences)
+- **`bad_worker.ex`**: 3 findings (3 violations, 0 patterns, 0 adherences)
+- **`order_pipeline.ex`**: 2 findings (0 violations, 2 patterns, 0 adherences)
+- **`app_supervisor.ex`**: 1 findings (0 violations, 1 patterns, 0 adherences)
+- **`accounts_facade.ex`**: 1 findings (0 violations, 1 patterns, 0 adherences)
+</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI Metrics Grid -->
+        <div class="ui grid stackable four column" style="margin-bottom: 20px;">
+            <div class="column">
+                <div class="kpi-card">
+                    <div style="font-size: 28px; font-weight: 700; color: #c084fc;">11</div>
+                    <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">Total Findings</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="kpi-card">
+                    <div style="font-size: 28px; font-weight: 700; color: #fb923c;">3</div>
+                    <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">Violations / Smells</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="kpi-card">
+                    <div style="font-size: 28px; font-weight: 700; color: #4ade80;">8</div>
+                    <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">OTP & Idiom Patterns</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="kpi-card">
+                    <div style="font-size: 28px; font-weight: 700; color: #38bdf8;">5 files</div>
+                    <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">Scan Time: 0.002s</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="ui secondary pointing menu inverted" style="border-color: #232d42; margin-bottom: 16px; overflow-x: auto;">
+            <a class="item active cat-filter-btn" data-filter="all">
+                <i class="layer group icon"></i> All Findings
+            </a>
+            
+                    <a class="item cat-filter-btn" data-filter="otp_behaviour">
+                        <i class="server icon" style="color: #a855f7;"></i>
+                        OTP Behaviours
+                        <div class="ui mini purple label">2</div>
+                    </a>
+                    
+                    <a class="item cat-filter-btn" data-filter="functional_idiom">
+                        <i class="code branch icon" style="color: #38bdf8;"></i>
+                        Functional Idioms
+                        <div class="ui mini blue label">1</div>
+                    </a>
+                    
+                    <a class="item cat-filter-btn" data-filter="structural">
+                        <i class="sitemap icon" style="color: #8b5cf6;"></i>
+                        Structural Patterns
+                        <div class="ui mini violet label">3</div>
+                    </a>
+                    
+                    <a class="item cat-filter-btn" data-filter="behavioral">
+                        <i class="random icon" style="color: #ec4899;"></i>
+                        Behavioral Patterns
+                        <div class="ui mini pink label">2</div>
+                    </a>
+                    
+                    <a class="item cat-filter-btn" data-filter="safety">
+                        <i class="exclamation triangle icon" style="color: #f97316;"></i>
+                        Safety & Let-It-Crash
+                        <div class="ui mini orange label">3</div>
+                    </a>
+                    
+        </div>
+
+        <!-- Action Status Sub-Tabs Bar -->
+        <div class="ui inverted segment" style="background: #151b2b; border: 1px solid #232d42; border-radius: 8px; margin-bottom: 16px; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div class="ui mini inverted basic buttons" id="statusFilterGroup">
+                <button class="ui button active status-filter-btn" data-status="all">
+                    <i class="eye icon"></i> All <span class="ui mini purple label" id="statusCountAll">11</span>
+                </button>
+                <button class="ui button status-filter-btn" data-status="violation" style="color: #fb923c !important;">
+                    <i class="exclamation triangle icon"></i> ⚠️ Violations <span class="ui mini orange label" id="statusCountViolation">3</span>
+                </button>
+                <button class="ui button status-filter-btn" data-status="adherence" style="color: #4ade80 !important;">
+                    <i class="check circle icon"></i> ✅ Adherences <span class="ui mini green label" id="statusCountAdherence">0</span>
+                </button>
+                <button class="ui button status-filter-btn" data-status="pattern" style="color: #c084fc !important;">
+                    <i class="server icon"></i> 🔷 OTP & Idioms <span class="ui mini purple label" id="statusCountPattern">8</span>
+                </button>
+            </div>
+            <div>
+                <button id="principlesToggleBtn" class="ui mini inverted basic button" onclick="togglePrinciplesVisibility()" style="border-color: #9333ea; color: #ddd6fe; font-weight: 600;">
+                    <i class="shield alternate icon" style="color: #c084fc;"></i> <span id="principlesToggleText">Hide Principles & Smells</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="ui fluid icon inverted input" style="margin-bottom: 20px;">
+            <input type="text" id="searchInput" placeholder="🔎 Instant search by module, behaviour (GenServer, Supervisor, Protocol, Context, Plug)..." style="background: #151b2b; border: 1px solid #232d42; color: #f8fafc; padding: 12px 16px;">
+            <i class="search icon"></i>
+        </div>
+
+        <!-- Zero Violations Alert -->
+        <div id="noViolationsAlert" class="ui positive icon message" style="display: none; background: rgba(34, 197, 94, 0.12); border: 1px solid rgba(34, 197, 94, 0.35); color: #86efac; margin-bottom: 20px; border-radius: 8px;">
+            <i class="check circle outline icon" style="color: #4ade80;"></i>
+            <div class="content">
+                <div class="header" style="color: #4ade80; font-size: 16px; font-weight: 700;">Zero Violations Found!</div>
+                <p style="color: #cbd5e1; margin-top: 4px;">All evaluated Elixir modules adhere cleanly to OTP standards and Let-It-Crash resilience guidelines.</p>
+            </div>
+        </div>
+
+        <!-- No Matching Results Message -->
+        <div id="noResultsMessage" class="ui inverted segment" style="display: none; background: #151b2b; border: 1px solid #232d42; text-align: center; padding: 30px; border-radius: 8px;">
+            <i class="search icon" style="font-size: 24px; color: #64748b; margin-bottom: 10px;"></i>
+            <div style="color: #94a3b8; font-size: 15px;">No findings match the selected category, action status, or search query.</div>
+        </div>
+
+        <!-- Cards Container -->
+        <div id="cardsContainer">
+            
+                <div class="pattern-card" data-category="otp_behaviour" data-pattern="gen_server" data-status="pattern" data-target="core.orderserver">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini purple label">#1 GEN_SERVER</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Core.OrderServer</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(genserver_module)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4);">
+                                94% [VERY_HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Module &#x27;Core.OrderServer&#x27; explicitly adopts OTP GenServer actor behaviour (`use GenServer`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (3 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[GEN_SERVER_USE_DECLARATION]</span>
+                        Module &#x27;Core.OrderServer&#x27; explicitly adopts OTP GenServer actor behaviour (`use GenServer`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1</span>
+                    </div>
+                    
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+60%</span>
+                        <span class="code-pill">[GEN_SERVER_CALLBACKS]</span>
+                        Implements 3 core GenServer callback(s) (init/1, handle_call/3, handle_cast/2) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1</span>
+                    </div>
+                    
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+40%</span>
+                        <span class="code-pill">[GEN_SERVER_START_LINK]</span>
+                        Provides canonical starter function &#x27;start_link/1&#x27; <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:12:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="otp_behaviour" data-pattern="supervisor" data-status="pattern" data-target="core.appsupervisor">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini purple label">#2 SUPERVISOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Core.AppSupervisor</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(supervisor_module)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4);">
+                                91% [VERY_HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Module &#x27;Core.AppSupervisor&#x27; adopts OTP Supervisor behaviour (`use Supervisor`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/examples/elixir_samples/app_supervisor.ex:1:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (2 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[SUPERVISOR_USE_DECLARATION]</span>
+                        Module &#x27;Core.AppSupervisor&#x27; adopts OTP Supervisor behaviour (`use Supervisor`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/app_supervisor.ex:1:1</span>
+                    </div>
+                    
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+65%</span>
+                        <span class="code-pill">[SUPERVISOR_INIT_STRATEGY]</span>
+                        Defines supervisor child specifications and restart strategy &#x27;:one_for_one&#x27; <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/app_supervisor.ex:12:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="core.orderpipeline.process_checkout/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#3 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Core.OrderPipeline.process_checkout/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;process_checkout/1&#x27; composes functional data transformations across a 5-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_pipeline.ex:6:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;process_checkout/1&#x27; composes functional data transformations across a 5-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_pipeline.ex:6:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="structural" data-pattern="plug_pipeline" data-status="pattern" data-target="core.orderserver">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini violet label">#4 PLUG_PIPELINE</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Core.OrderServer</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(plug_module)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.4);">
+                                85% [VERY_HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Module &#x27;Core.OrderServer&#x27; coordinates HTTP connection middleware processing pipeline (`Plug`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+85%</span>
+                        <span class="code-pill">[PLUG_MIDDLEWARE_PIPELINE]</span>
+                        Module &#x27;Core.OrderServer&#x27; coordinates HTTP connection middleware processing pipeline (`Plug`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="structural" data-pattern="facade_context" data-status="pattern" data-target="core.accounts">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini violet label">#5 FACADE_CONTEXT</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Core.Accounts</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(context_facade_module)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Module &#x27;Core.Accounts&#x27; serves as a Phoenix Context Facade encapsulating business operations (get_user!, list_users, create_user, update_user)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/examples/elixir_samples/accounts_facade.ex:1:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[PHOENIX_CONTEXT_FACADE]</span>
+                        Module &#x27;Core.Accounts&#x27; serves as a Phoenix Context Facade encapsulating business operations (get_user!, list_users, create_user, update_user) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/accounts_facade.ex:1:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="structural" data-pattern="adapter_behaviour" data-status="pattern" data-target="core.orderserver">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini violet label">#6 ADAPTER_BEHAVIOUR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Core.OrderServer</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(adapter_behaviour_module)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Module &#x27;Core.OrderServer&#x27; defines interchangeable Adapter Behaviour contract with 1 callback(s) (format_order/1)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[ADAPTER_BEHAVIOUR_CALLBACKS]</span>
+                        Module &#x27;Core.OrderServer&#x27; defines interchangeable Adapter Behaviour contract with 1 callback(s) (format_order/1) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="behavioral" data-pattern="command_tagged_tuple" data-status="pattern" data-target="core.orderserver.handle_call/3">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini pink label">#7 COMMAND_TAGGED_TUPLE</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Core.OrderServer.handle_call/3</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(command_dispatcher)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function handle_call/3 in &#x27;Core.OrderServer&#x27; pattern matches on 2 distinct Command tagged tuples
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:22:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[COMMAND_TAGGED_TUPLE_DISPATCH]</span>
+                        Function handle_call/3 in &#x27;Core.OrderServer&#x27; pattern matches on 2 distinct Command tagged tuples <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:22:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="behavioral" data-pattern="with_monadic_pipeline" data-status="pattern" data-target="core.orderpipeline.execute_payment/2">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini pink label">#8 WITH_MONADIC_PIPELINE</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Core.OrderPipeline.execute_payment/2</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(railway_pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;execute_payment/2&#x27; implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_pipeline.ex:15:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[WITH_RAILWAY_PIPELINE]</span>
+                        Function &#x27;execute_payment/2&#x27; implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_pipeline.ex:15:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="safety" data-pattern="defensive_rescue_smell" data-status="violation" data-target="core.badworker.defensive_rescue_antipattern/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini orange label">#9 DEFENSIVE_RESCUE_SMELL</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Core.BadWorker.defensive_rescue_antipattern/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(defensive_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(249, 115, 22, 0.15); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.4);">
+                                85% [VERY_HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Let-It-Crash Violation: Function &#x27;defensive_rescue_antipattern/1&#x27; in &#x27;Core.BadWorker&#x27; defensively swallows errors (`rescue _ -&gt; nil`); let processes fail fast and restart cleanly via Supervisor
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:16:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+85%</span>
+                        <span class="code-pill">[DEFENSIVE_RESCUE_SWALLOW]</span>
+                        Let-It-Crash Violation: Function &#x27;defensive_rescue_antipattern/1&#x27; in &#x27;Core.BadWorker&#x27; defensively swallows errors (`rescue _ -&gt; nil`); let processes fail fast and restart cleanly via Supervisor <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:16:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="safety" data-pattern="unbounded_process_spawn" data-status="violation" data-target="core.badworker.unsafe_handler/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini orange label">#10 UNBOUNDED_PROCESS_SPAWN</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Core.BadWorker.unsafe_handler/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(unsupervised_spawn_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(249, 115, 22, 0.15); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Safety Audit (Unsupervised Process): Function &#x27;unsafe_handler/1&#x27; in &#x27;Core.BadWorker&#x27; calls raw `spawn/spawn_link`; use `Task.Supervisor` for fault tolerance and supervision
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:6:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[UNSUPERVISED_PROCESS_SPAWN]</span>
+                        Safety Audit (Unsupervised Process): Function &#x27;unsafe_handler/1&#x27; in &#x27;Core.BadWorker&#x27; calls raw `spawn/spawn_link`; use `Task.Supervisor` for fault tolerance and supervision <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:6:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="safety" data-pattern="string_to_atom_vulnerability" data-status="violation" data-target="core.badworker.unsafe_handler/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini orange label">#11 STRING_TO_ATOM_VULNERABILITY</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Core.BadWorker.unsafe_handler/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(unsafe_atom_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(249, 115, 22, 0.15); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Safety Audit (Atom Exhaustion Risk): Function &#x27;unsafe_handler/1&#x27; in &#x27;Core.BadWorker&#x27; calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:6:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[DYNAMIC_STRING_TO_ATOM]</span>
+                        Safety Audit (Atom Exhaustion Risk): Function &#x27;unsafe_handler/1&#x27; in &#x27;Core.BadWorker&#x27; calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:6:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.pattern-card');
+        const categoryBtns = document.querySelectorAll('.cat-filter-btn');
+        const statusBtns = document.querySelectorAll('.status-filter-btn');
+        const noViolationsAlert = document.getElementById('noViolationsAlert');
+        const noResultsMessage = document.getElementById('noResultsMessage');
+
+        let selectedCategory = 'all';
+        let selectedStatus = 'all';
+        let hidePrinciples = false;
+
+        function togglePrinciplesVisibility() {
+            hidePrinciples = !hidePrinciples;
+            const btn = document.getElementById('principlesToggleBtn');
+            const btnText = document.getElementById('principlesToggleText');
+            if (hidePrinciples) {
+                btn.classList.remove('basic');
+                btn.classList.add('purple');
+                btnText.textContent = 'Show Principles & Smells';
+            } else {
+                btn.classList.remove('purple');
+                btn.classList.add('basic');
+                btnText.textContent = 'Hide Principles & Smells';
+            }
+            updateStatusCounts();
+            filterCards();
+        }
+
+        function updateStatusCounts() {
+            let total = 0, violations = 0, adherences = 0, patterns = 0;
+            cards.forEach(card => {
+                const category = card.dataset.category || '';
+                const status = card.dataset.status || '';
+                if (hidePrinciples && category === 'principle') {
+                    return;
+                }
+                if (selectedCategory === 'all' || category === selectedCategory) {
+                    total++;
+                    if (status === 'violation') violations++;
+                    if (status === 'adherence') adherences++;
+                    if (status === 'pattern') patterns++;
+                }
+            });
+            document.getElementById('statusCountAll').textContent = total;
+            document.getElementById('statusCountViolation').textContent = violations;
+            document.getElementById('statusCountAdherence').textContent = adherences;
+            document.getElementById('statusCountPattern').textContent = patterns;
+        }
+
+        function filterCards() {
+            const query = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                const pattern = card.dataset.pattern || '';
+                const category = card.dataset.category || '';
+                const target = card.dataset.target || '';
+                const status = card.dataset.status || '';
+
+                if (hidePrinciples && category === 'principle') {
+                    card.style.display = 'none';
+                    return;
+                }
+
+                const matchesCategory = (selectedCategory === 'all' || category === selectedCategory);
+                const matchesStatus = (selectedStatus === 'all' || status === selectedStatus);
+                const matchesSearch = (!query || text.includes(query) || pattern.includes(query) || category.includes(query) || target.includes(query));
+
+                if (matchesCategory && matchesStatus && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (selectedStatus === 'violation' && visibleCount === 0) {
+                noViolationsAlert.style.display = 'flex';
+                noResultsMessage.style.display = 'none';
+            } else if (visibleCount === 0) {
+                noViolationsAlert.style.display = 'none';
+                noResultsMessage.style.display = 'block';
+            } else {
+                noViolationsAlert.style.display = 'none';
+                noResultsMessage.style.display = 'none';
+            }
+        }
+
+        searchInput.addEventListener('input', filterCards);
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedCategory = btn.dataset.filter;
+                updateStatusCounts();
+                filterCards();
+            });
+        });
+
+        statusBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                statusBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedStatus = btn.dataset.status;
+                filterCards();
+            });
+        });
+
+        function copyArchMapForLlm() {
+            const rawText = document.getElementById('llmArchMapRaw').value;
+            const btn = document.getElementById('copyLlmBtn');
+            const originalHtml = btn.innerHTML;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(rawText).then(() => {
+                    btn.innerHTML = '<i class="check icon"></i> Copied to Clipboard!';
+                    setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
+                });
+            }
+        }
+
+        updateStatusCounts();
+    </script>
+</body>
+</html>

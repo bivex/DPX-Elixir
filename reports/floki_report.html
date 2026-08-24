@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💧 DPX-Elixir: Architecture & OTP Dashboard - floki</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.3/semantic.min.css">
+    <style>
+        :root {
+            --bg-main: #0b0f19;
+            --bg-card: #151b2b;
+            --border-color: #232d42;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+        body {
+            background-color: var(--bg-main) !important;
+            color: var(--text-primary) !important;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 30px 15px;
+        }
+        .ui.container {
+            max-width: 1200px !important;
+        }
+        .header-box {
+            background: linear-gradient(135deg, #4c1d95 0%, #1e1b4b 100%);
+            border: 1px solid #6d28d9;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        .kpi-card {
+            background: var(--bg-card) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 10px !important;
+            padding: 16px !important;
+            text-align: center;
+        }
+        .pattern-card {
+            background: var(--bg-card) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 10px !important;
+            margin-bottom: 16px !important;
+            padding: 20px !important;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .pattern-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border-color: #a855f7 !important;
+        }
+        .evidence-box {
+            background: #0b0f19;
+            border-radius: 6px;
+            padding: 12px 16px;
+            margin-top: 12px;
+            border-left: 3px solid #a855f7;
+            font-size: 13px;
+        }
+        .code-pill {
+            background: #1e293b;
+            color: #c084fc;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ui container">
+        <!-- Header -->
+        <div class="header-box">
+            <div class="ui grid stackable middle aligned">
+                <div class="ten wide column">
+                    <h1 class="ui header inverted" style="margin: 0; font-size: 28px;">
+                        💧 DPX-Elixir: OTP Architecture & Pattern Dashboard
+                        <div class="sub header" style="color: #ddd6fe; margin-top: 6px;">
+                            Static Analysis, OTP Behaviours, Concurrency & Phoenix Contexts for <strong>floki</strong>
+                        </div>
+                    </h1>
+                </div>
+                <div class="six wide column right aligned">
+                    <button id="copyLlmBtn" class="ui purple button" onclick="copyArchMapForLlm()">
+                        <i class="copy icon"></i> Copy Architecture Map for LLM
+                    </button>
+                    <textarea id="llmArchMapRaw" style="display:none;"># 💧 DPX-Elixir: Codebase Architecture Map &amp; Refactoring Analysis
+
+## 📌 Project Overview
+- **Target Project:** `floki`
+- **Files Scanned:** `124`
+- **Total Architecture Findings:** `39`
+- **⚠️ Violations / Smells:** `19`
+- **🔷 OTP Behaviours &amp; Patterns:** `20`
+- **✅ Clean Adherences:** `0`
+
+---
+
+## 🎯 Task for AI / LLM Elixir / OTP Architect
+&gt; **Prompt Instructions:**
+&gt; 1. **Analyze Supervision &amp; GenServers:** Review GenServers, DynamicSupervisors, and Task async streams.
+&gt; 2. **Review Functional Pipelines:** Audit Railway `with` pipelines and `|&gt;` data flow.
+&gt; 3. **Propose Idiomatic Elixir Refactorings:** Suggest Phoenix Context boundaries, Registry process lookups, or Protocol polymorphism.
+&gt; 4. **Safety Improvements:** Eliminate dynamic `String.to_atom/1`, defensive `rescue _ -&gt; nil`, and unsupervised `spawn` calls.
+
+---
+
+## 🔷 Active OTP Behaviours &amp; Design Patterns (20 instances)
+### Pattern: `ADAPTER_BEHAVIOUR` (1 instances)
+- **Floki.HTMLParser** (adapter_behaviour_module, confidence 80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser.ex:1`
+  - *Summary:* Module &#x27;Floki.HTMLParser&#x27; defines interchangeable Adapter Behaviour contract with 4 callback(s) (parse_document/1, parse_fragment/1, parse_document_with_attributes_as_maps/1, parse_fragment_with_attributes_as_maps/1)
+### Pattern: `PIPELINE_OPERATOR` (15 instances)
+- **Floki.Mixfile.aliases/0** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/mix.exs:58`
+  - *Summary:* Function &#x27;aliases/0&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`)
+- **TokenizerTestLoader.tokenization_result/1** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/test/support/tokenizer_test_loader.ex:16`
+  - *Summary:* Function &#x27;tokenization_result/1&#x27; composes functional data transformations across a 5-stage pipe (`|&gt;`)
+- **Mix.Tasks.GenerateTokenizerTests.run/1** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_tokenizer_tests.ex:23`
+  - *Summary:* Function &#x27;run/1&#x27; composes functional data transformations across a 7-stage pipe (`|&gt;`)
+- **Mix.Tasks.GenerateTokenizerTests.save_tests/4** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_tokenizer_tests.ex:54`
+  - *Summary:* Function &#x27;save_tests/4&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`)
+- **Mix.Tasks.GenerateEntities.run/1** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_entities.ex:11`
+  - *Summary:* Function &#x27;run/1&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`)
+- **Floki.RawHTML.self_closing_tags/0** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/raw_html.ex:26`
+  - *Summary:* Function &#x27;self_closing_tags/0&#x27; composes functional data transformations across a 5-stage pipe (`|&gt;`)
+- **Floki.HTMLTree.do_delete/4** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_tree.ex:129`
+  - *Summary:* Function &#x27;do_delete/4&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`)
+- **Floki.CSSEscape.escape/1** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/css_escape.ex:21`
+  - *Summary:* Function &#x27;escape/1&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`)
+- **Floki.FlatText.get/3** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/flat_text.ex:32`
+  - *Summary:* Function &#x27;get/3&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`)
+- **Floki.Selector.AttributeSelector.match?/2** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/attribute_selector.ex:49`
+  - *Summary:* Function &#x27;match?/2&#x27; composes functional data transformations across a 19-stage pipe (`|&gt;`)
+- **Floki.Selector.Functional.parse_num/1** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/functional.ex:36`
+  - *Summary:* Function &#x27;parse_num/1&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`)
+- **Floki.Selector.PseudoClass.match_nth_child?/3** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:31`
+  - *Summary:* Function &#x27;match_nth_child?/3&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`)
+- **Floki.Selector.PseudoClass.match_nth_of_type?/3** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:39`
+  - *Summary:* Function &#x27;match_nth_of_type?/3&#x27; composes functional data transformations across a 5-stage pipe (`|&gt;`)
+- **Floki.Selector.PseudoClass.match_nth_last_child?/3** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:48`
+  - *Summary:* Function &#x27;match_nth_last_child?/3&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`)
+- **Floki.Selector.PseudoClass.match_nth_last_of_type?/3** (pipeline_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:55`
+  - *Summary:* Function &#x27;match_nth_last_of_type?/3&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`)
+### Pattern: `STRATEGY_DISPATCH` (3 instances)
+- **Floki.HTMLParser.Html5ever.parse_document/2** (strategy_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:7`
+  - *Summary:* Function &#x27;parse_document/2&#x27; dynamically dispatches behavior to pluggable Strategy/Adapter modules
+- **Floki.HTMLParser.Html5ever.parse_document_with_attributes_as_maps/2** (strategy_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:28`
+  - *Summary:* Function &#x27;parse_document_with_attributes_as_maps/2&#x27; dynamically dispatches behavior to pluggable Strategy/Adapter modules
+- **Floki.HTMLParser.Html5ever.parse_fragment_with_attributes_as_maps/2** (strategy_function, confidence 75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:33`
+  - *Summary:* Function &#x27;parse_fragment_with_attributes_as_maps/2&#x27; dynamically dispatches behavior to pluggable Strategy/Adapter modules
+### Pattern: `WITH_MONADIC_PIPELINE` (1 instances)
+- **Floki.HTMLTree.do_delete/4** (railway_pipeline_function, confidence 80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_tree.ex:129`
+  - *Summary:* Function &#x27;do_delete/4&#x27; implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)
+
+---
+
+## ⚠️ Architectural Violations &amp; Code Smells (19 instances)
+### Violation: `CYCLOMATIC_COMPLEXITY_KISS` (7 occurrences)
+- **Floki.Selector.pseudo_class_match?/3** (75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector.ex:195`
+  - *Risk / Smell:* KISS Violation (High Complexity): Function &#x27;pseudo_class_match?/3&#x27; in &#x27;Floki.Selector&#x27; defines 16 pattern-matching clauses / 16 branches; decompose into smaller routines
+  - *Evidence:* `+75%` [KISS_EXCESSIVE_CLAUSES] KISS Violation (High Complexity): Function &#x27;pseudo_class_match?/3&#x27; in &#x27;Floki.Selector&#x27; defines 16 pattern-matching clauses / 16 branches; decompose into smaller routines
+- **Floki.Finder.traverse_html_tuples/3** (75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/finder.ex:172`
+  - *Risk / Smell:* KISS Violation (High Complexity): Function &#x27;traverse_html_tuples/3&#x27; in &#x27;Floki.Finder&#x27; defines 10 pattern-matching clauses / 10 branches; decompose into smaller routines
+  - *Evidence:* `+75%` [KISS_EXCESSIVE_CLAUSES] KISS Violation (High Complexity): Function &#x27;traverse_html_tuples/3&#x27; in &#x27;Floki.Finder&#x27; defines 10 pattern-matching clauses / 10 branches; decompose into smaller routines
+- **Floki.DeepText.get_text/6** (75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/deep_text.ex:30`
+  - *Risk / Smell:* KISS Violation (High Complexity): Function &#x27;get_text/6&#x27; in &#x27;Floki.DeepText&#x27; defines 14 pattern-matching clauses / 14 branches; decompose into smaller routines
+  - *Evidence:* `+75%` [KISS_EXCESSIVE_CLAUSES] KISS Violation (High Complexity): Function &#x27;get_text/6&#x27; in &#x27;Floki.DeepText&#x27; defines 14 pattern-matching clauses / 14 branches; decompose into smaller routines
+- **Floki.Selector.AttributeSelector.match?/2** (75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/attribute_selector.ex:49`
+  - *Risk / Smell:* KISS Violation (High Complexity): Function &#x27;match?/2&#x27; in &#x27;Floki.Selector.AttributeSelector&#x27; defines 13 pattern-matching clauses / 13 branches; decompose into smaller routines
+  - *Evidence:* `+75%` [KISS_EXCESSIVE_CLAUSES] KISS Violation (High Complexity): Function &#x27;match?/2&#x27; in &#x27;Floki.Selector.AttributeSelector&#x27; defines 13 pattern-matching clauses / 13 branches; decompose into smaller routines
+- **Floki.Selector.Parser.do_parse/2** (75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/parser.ex:40`
+  - *Risk / Smell:* KISS Violation (High Complexity): Function &#x27;do_parse/2&#x27; in &#x27;Floki.Selector.Parser&#x27; defines 22 pattern-matching clauses / 22 branches; decompose into smaller routines
+  - *Evidence:* `+75%` [KISS_EXCESSIVE_CLAUSES] KISS Violation (High Complexity): Function &#x27;do_parse/2&#x27; in &#x27;Floki.Selector.Parser&#x27; defines 22 pattern-matching clauses / 22 branches; decompose into smaller routines
+- **Floki.HTML.NumericCharref.to_unicode_number/1** (75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/numeric_charref.ex:5`
+  - *Risk / Smell:* KISS Violation (High Complexity): Function &#x27;to_unicode_number/1&#x27; in &#x27;Floki.HTML.NumericCharref&#x27; defines 30 pattern-matching clauses / 30 branches; decompose into smaller routines
+  - *Evidence:* `+75%` [KISS_EXCESSIVE_CLAUSES] KISS Violation (High Complexity): Function &#x27;to_unicode_number/1&#x27; in &#x27;Floki.HTML.NumericCharref&#x27; defines 30 pattern-matching clauses / 30 branches; decompose into smaller routines
+- **Floki.Entities.Codepoints.get/1** (75%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/entities/codepoints.ex:10`
+  - *Risk / Smell:* KISS Violation (High Complexity): Function &#x27;get/1&#x27; in &#x27;Floki.Entities.Codepoints&#x27; defines 2232 pattern-matching clauses / 2232 branches; decompose into smaller routines
+  - *Evidence:* `+75%` [KISS_EXCESSIVE_CLAUSES] KISS Violation (High Complexity): Function &#x27;get/1&#x27; in &#x27;Floki.Entities.Codepoints&#x27; defines 2232 pattern-matching clauses / 2232 branches; decompose into smaller routines
+### Violation: `DUPLICATE_CODE_DRY` (11 occurrences)
+- **Floki.HTMLParser.Html5ever.parse_document_with_attributes_as_maps/2** (80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:28`
+  - *Risk / Smell:* DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.Html5ever.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.Html5ever.parse_fragment_with_attributes_as_maps/2
+  - *Evidence:* `+80%` [DRY_CODE_DUPLICATION] DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.Html5ever.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.Html5ever.parse_fragment_with_attributes_as_maps/2
+- **Floki.HTMLParser.FastHtml.parse_document_with_attributes_as_maps/2** (80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/fast_html.ex:18`
+  - *Risk / Smell:* DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.FastHtml.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.FastHtml.parse_fragment_with_attributes_as_maps/2
+  - *Evidence:* `+80%` [DRY_CODE_DUPLICATION] DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.FastHtml.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.FastHtml.parse_fragment_with_attributes_as_maps/2
+- **Floki.HTMLParser.Mochiweb.parse_document_with_attributes_as_maps/2** (80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/mochiweb.ex:27`
+  - *Risk / Smell:* DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.Mochiweb.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.Mochiweb.parse_fragment_with_attributes_as_maps/2
+  - *Evidence:* `+80%` [DRY_CODE_DUPLICATION] DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.Mochiweb.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.Mochiweb.parse_fragment_with_attributes_as_maps/2
+- **Floki.HTML.Tokenizer.script_data_double_escaped/1** (80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:992`
+  - *Risk / Smell:* DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.script_data_double_escaped/1, Floki.HTML.Tokenizer.script_data_double_escaped_dash/1
+  - *Evidence:* `+80%` [DRY_CODE_DUPLICATION] DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.script_data_double_escaped/1, Floki.HTML.Tokenizer.script_data_double_escaped_dash/1
+- **Floki.HTML.Tokenizer.after_attribute_name/1** (80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1275`
+  - *Risk / Smell:* DRY Violation: Identical function logic duplicated across 7 location(s): Floki.HTML.Tokenizer.after_attribute_name/1, Floki.HTML.Tokenizer.attribute_value_unquoted/1, Floki.HTML.Tokenizer.after_attribute_value_quoted/1
+  - *Evidence:* `+80%` [DRY_CODE_DUPLICATION] DRY Violation: Identical function logic duplicated across 7 location(s): Floki.HTML.Tokenizer.after_attribute_name/1, Floki.HTML.Tokenizer.attribute_value_unquoted/1, Floki.HTML.Tokenizer.after_attribute_value_quoted/1
+- **Floki.HTML.Tokenizer.comment_start/1** (80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1574`
+  - *Risk / Smell:* DRY Violation: Identical function logic duplicated across 3 location(s): Floki.HTML.Tokenizer.comment_start/1, Floki.HTML.Tokenizer.comment_start_dash/1, Floki.HTML.Tokenizer.comment_end_bang/1
+  - *Evidence:* `+80%` [DRY_CODE_DUPLICATION] DRY Violation: Identical function logic duplicated across 3 location(s): Floki.HTML.Tokenizer.comment_start/1, Floki.HTML.Tokenizer.comment_start_dash/1, Floki.HTML.Tokenizer.comment_end_bang/1
+- **Floki.HTML.Tokenizer.after_doctype_public_keyword/1** (80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1987`
+  - *Risk / Smell:* DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_public_keyword/1, Floki.HTML.Tokenizer.before_doctype_public_identifier/1
+  - *Evidence:* `+80%` [DRY_CODE_DUPLICATION] DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_public_keyword/1, Floki.HTML.Tokenizer.before_doctype_public_identifier/1
+- **Floki.HTML.Tokenizer.doctype_public_identifier_double_quoted/1** (80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2116`
+  - *Risk / Smell:* DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.doctype_public_identifier_double_quoted/1, Floki.HTML.Tokenizer.doctype_public_identifier_single_quoted/1
+  - *Evidence:* `+80%` [DRY_CODE_DUPLICATION] DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.doctype_public_identifier_double_quoted/1, Floki.HTML.Tokenizer.doctype_public_identifier_single_quoted/1
+- **Floki.HTML.Tokenizer.after_doctype_system_keyword/1** (80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2338`
+  - *Risk / Smell:* DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_system_keyword/1, Floki.HTML.Tokenizer.before_doctype_system_identifier/1
+  - *Evidence:* `+80%` [DRY_CODE_DUPLICATION] DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_system_keyword/1, Floki.HTML.Tokenizer.before_doctype_system_identifier/1
+- **Floki.HTML.Tokenizer.doctype_system_identifier_double_quoted/1** (80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2466`
+  - *Risk / Smell:* DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.doctype_system_identifier_double_quoted/1, Floki.HTML.Tokenizer.doctype_system_identifier_single_quoted/1
+  - *Evidence:* `+80%` [DRY_CODE_DUPLICATION] DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.doctype_system_identifier_double_quoted/1, Floki.HTML.Tokenizer.doctype_system_identifier_single_quoted/1
+- **Floki.HTML.Tokenizer.after_doctype_system_identifier/1** (80%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2576`
+  - *Risk / Smell:* DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_system_identifier/1, Floki.HTML.Tokenizer.bogus_doctype/1
+  - *Evidence:* `+80%` [DRY_CODE_DUPLICATION] DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_system_identifier/1, Floki.HTML.Tokenizer.bogus_doctype/1
+### Violation: `LARGE_MODULE_SRP` (1 occurrences)
+- **Floki.HTML.Tokenizer** (85%) in `/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1`
+  - *Risk / Smell:* SRP Violation (God Module): Module &#x27;Floki.HTML.Tokenizer&#x27; defines 14 public functions and 126 routines, indicating multiple mixed domain responsibilities
+  - *Evidence:* `+85%` [SRP_GOD_MODULE] SRP Violation (God Module): Module &#x27;Floki.HTML.Tokenizer&#x27; defines 14 public functions and 126 routines, indicating multiple mixed domain responsibilities
+
+---
+
+## 🗺️ Module &amp; File Hotspots Distribution
+- **`tokenizer.ex`**: 9 findings (9 violations, 0 patterns, 0 adherences)
+- **`pseudo_class.ex`**: 4 findings (0 violations, 4 patterns, 0 adherences)
+- **`html5ever.ex`**: 4 findings (1 violations, 3 patterns, 0 adherences)
+- **`generate_tokenizer_tests.ex`**: 2 findings (0 violations, 2 patterns, 0 adherences)
+- **`html_tree.ex`**: 2 findings (0 violations, 2 patterns, 0 adherences)
+- **`attribute_selector.ex`**: 2 findings (1 violations, 1 patterns, 0 adherences)
+- **`mix.exs`**: 1 findings (0 violations, 1 patterns, 0 adherences)
+- **`tokenizer_test_loader.ex`**: 1 findings (0 violations, 1 patterns, 0 adherences)
+- **`generate_entities.ex`**: 1 findings (0 violations, 1 patterns, 0 adherences)
+- **`raw_html.ex`**: 1 findings (0 violations, 1 patterns, 0 adherences)
+- **`css_escape.ex`**: 1 findings (0 violations, 1 patterns, 0 adherences)
+- **`flat_text.ex`**: 1 findings (0 violations, 1 patterns, 0 adherences)
+- **`functional.ex`**: 1 findings (0 violations, 1 patterns, 0 adherences)
+- **`html_parser.ex`**: 1 findings (0 violations, 1 patterns, 0 adherences)
+- **`selector.ex`**: 1 findings (1 violations, 0 patterns, 0 adherences)
+- **`finder.ex`**: 1 findings (1 violations, 0 patterns, 0 adherences)
+- **`deep_text.ex`**: 1 findings (1 violations, 0 patterns, 0 adherences)
+- **`parser.ex`**: 1 findings (1 violations, 0 patterns, 0 adherences)
+- **`numeric_charref.ex`**: 1 findings (1 violations, 0 patterns, 0 adherences)
+- **`codepoints.ex`**: 1 findings (1 violations, 0 patterns, 0 adherences)
+- **`fast_html.ex`**: 1 findings (1 violations, 0 patterns, 0 adherences)
+- **`mochiweb.ex`**: 1 findings (1 violations, 0 patterns, 0 adherences)
+</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- KPI Metrics Grid -->
+        <div class="ui grid stackable four column" style="margin-bottom: 20px;">
+            <div class="column">
+                <div class="kpi-card">
+                    <div style="font-size: 28px; font-weight: 700; color: #c084fc;">39</div>
+                    <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">Total Findings</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="kpi-card">
+                    <div style="font-size: 28px; font-weight: 700; color: #fb923c;">19</div>
+                    <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">Violations / Smells</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="kpi-card">
+                    <div style="font-size: 28px; font-weight: 700; color: #4ade80;">20</div>
+                    <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">OTP & Idiom Patterns</div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="kpi-card">
+                    <div style="font-size: 28px; font-weight: 700; color: #38bdf8;">124 files</div>
+                    <div style="color: #94a3b8; font-size: 13px; margin-top: 4px;">Scan Time: 0.158s</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="ui secondary pointing menu inverted" style="border-color: #232d42; margin-bottom: 16px; overflow-x: auto;">
+            <a class="item active cat-filter-btn" data-filter="all">
+                <i class="layer group icon"></i> All Findings
+            </a>
+            
+                    <a class="item cat-filter-btn" data-filter="functional_idiom">
+                        <i class="code branch icon" style="color: #38bdf8;"></i>
+                        Functional Idioms
+                        <div class="ui mini blue label">15</div>
+                    </a>
+                    
+                    <a class="item cat-filter-btn" data-filter="structural">
+                        <i class="sitemap icon" style="color: #8b5cf6;"></i>
+                        Structural Patterns
+                        <div class="ui mini violet label">1</div>
+                    </a>
+                    
+                    <a class="item cat-filter-btn" data-filter="behavioral">
+                        <i class="random icon" style="color: #ec4899;"></i>
+                        Behavioral Patterns
+                        <div class="ui mini pink label">4</div>
+                    </a>
+                    
+                    <a class="item cat-filter-btn" data-filter="principle">
+                        <i class="balance scale icon" style="color: #eab308;"></i>
+                        Principles & Quality
+                        <div class="ui mini yellow label">19</div>
+                    </a>
+                    
+        </div>
+
+        <!-- Action Status Sub-Tabs Bar -->
+        <div class="ui inverted segment" style="background: #151b2b; border: 1px solid #232d42; border-radius: 8px; margin-bottom: 16px; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+            <div class="ui mini inverted basic buttons" id="statusFilterGroup">
+                <button class="ui button active status-filter-btn" data-status="all">
+                    <i class="eye icon"></i> All <span class="ui mini purple label" id="statusCountAll">39</span>
+                </button>
+                <button class="ui button status-filter-btn" data-status="violation" style="color: #fb923c !important;">
+                    <i class="exclamation triangle icon"></i> ⚠️ Violations <span class="ui mini orange label" id="statusCountViolation">19</span>
+                </button>
+                <button class="ui button status-filter-btn" data-status="adherence" style="color: #4ade80 !important;">
+                    <i class="check circle icon"></i> ✅ Adherences <span class="ui mini green label" id="statusCountAdherence">0</span>
+                </button>
+                <button class="ui button status-filter-btn" data-status="pattern" style="color: #c084fc !important;">
+                    <i class="server icon"></i> 🔷 OTP & Idioms <span class="ui mini purple label" id="statusCountPattern">20</span>
+                </button>
+            </div>
+            <div>
+                <button id="principlesToggleBtn" class="ui mini inverted basic button" onclick="togglePrinciplesVisibility()" style="border-color: #9333ea; color: #ddd6fe; font-weight: 600;">
+                    <i class="shield alternate icon" style="color: #c084fc;"></i> <span id="principlesToggleText">Hide Principles & Smells</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="ui fluid icon inverted input" style="margin-bottom: 20px;">
+            <input type="text" id="searchInput" placeholder="🔎 Instant search by module, behaviour (GenServer, Supervisor, Protocol, Context, Plug)..." style="background: #151b2b; border: 1px solid #232d42; color: #f8fafc; padding: 12px 16px;">
+            <i class="search icon"></i>
+        </div>
+
+        <!-- Zero Violations Alert -->
+        <div id="noViolationsAlert" class="ui positive icon message" style="display: none; background: rgba(34, 197, 94, 0.12); border: 1px solid rgba(34, 197, 94, 0.35); color: #86efac; margin-bottom: 20px; border-radius: 8px;">
+            <i class="check circle outline icon" style="color: #4ade80;"></i>
+            <div class="content">
+                <div class="header" style="color: #4ade80; font-size: 16px; font-weight: 700;">Zero Violations Found!</div>
+                <p style="color: #cbd5e1; margin-top: 4px;">All evaluated Elixir modules adhere cleanly to OTP standards and Let-It-Crash resilience guidelines.</p>
+            </div>
+        </div>
+
+        <!-- No Matching Results Message -->
+        <div id="noResultsMessage" class="ui inverted segment" style="display: none; background: #151b2b; border: 1px solid #232d42; text-align: center; padding: 30px; border-radius: 8px;">
+            <i class="search icon" style="font-size: 24px; color: #64748b; margin-bottom: 10px;"></i>
+            <div style="color: #94a3b8; font-size: 15px;">No findings match the selected category, action status, or search query.</div>
+        </div>
+
+        <!-- Cards Container -->
+        <div id="cardsContainer">
+            
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="floki.mixfile.aliases/0">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#1 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.Mixfile.aliases/0</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;aliases/0&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/mix.exs:58:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;aliases/0&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/mix.exs:58:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="tokenizertestloader.tokenization_result/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#2 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">TokenizerTestLoader.tokenization_result/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;tokenization_result/1&#x27; composes functional data transformations across a 5-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/test/support/tokenizer_test_loader.ex:16:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;tokenization_result/1&#x27; composes functional data transformations across a 5-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/test/support/tokenizer_test_loader.ex:16:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="mix.tasks.generatetokenizertests.run/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#3 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Mix.Tasks.GenerateTokenizerTests.run/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;run/1&#x27; composes functional data transformations across a 7-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_tokenizer_tests.ex:23:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;run/1&#x27; composes functional data transformations across a 7-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_tokenizer_tests.ex:23:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="mix.tasks.generatetokenizertests.save_tests/4">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#4 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Mix.Tasks.GenerateTokenizerTests.save_tests/4</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;save_tests/4&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_tokenizer_tests.ex:54:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;save_tests/4&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_tokenizer_tests.ex:54:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="mix.tasks.generateentities.run/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#5 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Mix.Tasks.GenerateEntities.run/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;run/1&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_entities.ex:11:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;run/1&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/mix/tasks/generate_entities.ex:11:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="floki.rawhtml.self_closing_tags/0">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#6 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.RawHTML.self_closing_tags/0</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;self_closing_tags/0&#x27; composes functional data transformations across a 5-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/raw_html.ex:26:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;self_closing_tags/0&#x27; composes functional data transformations across a 5-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/raw_html.ex:26:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="floki.htmltree.do_delete/4">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#7 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTMLTree.do_delete/4</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;do_delete/4&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_tree.ex:129:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;do_delete/4&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_tree.ex:129:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="floki.cssescape.escape/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#8 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.CSSEscape.escape/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;escape/1&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/css_escape.ex:21:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;escape/1&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/css_escape.ex:21:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="floki.flattext.get/3">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#9 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.FlatText.get/3</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;get/3&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/flat_text.ex:32:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;get/3&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/flat_text.ex:32:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="floki.selector.attributeselector.match?/2">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#10 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.Selector.AttributeSelector.match?/2</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;match?/2&#x27; composes functional data transformations across a 19-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/attribute_selector.ex:49:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;match?/2&#x27; composes functional data transformations across a 19-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/attribute_selector.ex:49:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="floki.selector.functional.parse_num/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#11 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.Selector.Functional.parse_num/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;parse_num/1&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/functional.ex:36:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;parse_num/1&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/functional.ex:36:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="floki.selector.pseudoclass.match_nth_child?/3">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#12 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.Selector.PseudoClass.match_nth_child?/3</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;match_nth_child?/3&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:31:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;match_nth_child?/3&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:31:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="floki.selector.pseudoclass.match_nth_of_type?/3">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#13 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.Selector.PseudoClass.match_nth_of_type?/3</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;match_nth_of_type?/3&#x27; composes functional data transformations across a 5-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:39:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;match_nth_of_type?/3&#x27; composes functional data transformations across a 5-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:39:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="floki.selector.pseudoclass.match_nth_last_child?/3">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#14 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.Selector.PseudoClass.match_nth_last_child?/3</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;match_nth_last_child?/3&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:48:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;match_nth_last_child?/3&#x27; composes functional data transformations across a 3-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:48:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="functional_idiom" data-pattern="pipeline_operator" data-status="pattern" data-target="floki.selector.pseudoclass.match_nth_last_of_type?/3">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini blue label">#15 PIPELINE_OPERATOR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.Selector.PseudoClass.match_nth_last_of_type?/3</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;match_nth_last_of_type?/3&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:55:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[PIPELINE_OPERATOR_CHAIN]</span>
+                        Function &#x27;match_nth_last_of_type?/3&#x27; composes functional data transformations across a 4-stage pipe (`|&gt;`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/pseudo_class.ex:55:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="structural" data-pattern="adapter_behaviour" data-status="pattern" data-target="floki.htmlparser">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini violet label">#16 ADAPTER_BEHAVIOUR</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTMLParser</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(adapter_behaviour_module)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(139, 92, 246, 0.15); color: #a78bfa; border: 1px solid rgba(139, 92, 246, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Module &#x27;Floki.HTMLParser&#x27; defines interchangeable Adapter Behaviour contract with 4 callback(s) (parse_document/1, parse_fragment/1, parse_document_with_attributes_as_maps/1, parse_fragment_with_attributes_as_maps/1)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser.ex:1:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[ADAPTER_BEHAVIOUR_CALLBACKS]</span>
+                        Module &#x27;Floki.HTMLParser&#x27; defines interchangeable Adapter Behaviour contract with 4 callback(s) (parse_document/1, parse_fragment/1, parse_document_with_attributes_as_maps/1, parse_fragment_with_attributes_as_maps/1) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser.ex:1:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="behavioral" data-pattern="with_monadic_pipeline" data-status="pattern" data-target="floki.htmltree.do_delete/4">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini pink label">#17 WITH_MONADIC_PIPELINE</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTMLTree.do_delete/4</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(railway_pipeline_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;do_delete/4&#x27; implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_tree.ex:129:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[WITH_RAILWAY_PIPELINE]</span>
+                        Function &#x27;do_delete/4&#x27; implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`) <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_tree.ex:129:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="behavioral" data-pattern="strategy_dispatch" data-status="pattern" data-target="floki.htmlparser.html5ever.parse_document/2">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini pink label">#18 STRATEGY_DISPATCH</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTMLParser.Html5ever.parse_document/2</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(strategy_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;parse_document/2&#x27; dynamically dispatches behavior to pluggable Strategy/Adapter modules
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:7:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[STRATEGY_DYNAMIC_DISPATCH]</span>
+                        Function &#x27;parse_document/2&#x27; dynamically dispatches behavior to pluggable Strategy/Adapter modules <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:7:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="behavioral" data-pattern="strategy_dispatch" data-status="pattern" data-target="floki.htmlparser.html5ever.parse_document_with_attributes_as_maps/2">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini pink label">#19 STRATEGY_DISPATCH</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTMLParser.Html5ever.parse_document_with_attributes_as_maps/2</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(strategy_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;parse_document_with_attributes_as_maps/2&#x27; dynamically dispatches behavior to pluggable Strategy/Adapter modules
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:28:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[STRATEGY_DYNAMIC_DISPATCH]</span>
+                        Function &#x27;parse_document_with_attributes_as_maps/2&#x27; dynamically dispatches behavior to pluggable Strategy/Adapter modules <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:28:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="behavioral" data-pattern="strategy_dispatch" data-status="pattern" data-target="floki.htmlparser.html5ever.parse_fragment_with_attributes_as_maps/2">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini pink label">#20 STRATEGY_DISPATCH</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTMLParser.Html5ever.parse_fragment_with_attributes_as_maps/2</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(strategy_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        Function &#x27;parse_fragment_with_attributes_as_maps/2&#x27; dynamically dispatches behavior to pluggable Strategy/Adapter modules
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:33:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[STRATEGY_DYNAMIC_DISPATCH]</span>
+                        Function &#x27;parse_fragment_with_attributes_as_maps/2&#x27; dynamically dispatches behavior to pluggable Strategy/Adapter modules <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:33:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="large_module_srp" data-status="violation" data-target="floki.html.tokenizer">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#21 LARGE_MODULE_SRP</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTML.Tokenizer</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(god_module)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                85% [VERY_HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        SRP Violation (God Module): Module &#x27;Floki.HTML.Tokenizer&#x27; defines 14 public functions and 126 routines, indicating multiple mixed domain responsibilities
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+85%</span>
+                        <span class="code-pill">[SRP_GOD_MODULE]</span>
+                        SRP Violation (God Module): Module &#x27;Floki.HTML.Tokenizer&#x27; defines 14 public functions and 126 routines, indicating multiple mixed domain responsibilities <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="cyclomatic_complexity_kiss" data-status="violation" data-target="floki.selector.pseudo_class_match?/3">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#22 CYCLOMATIC_COMPLEXITY_KISS</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.Selector.pseudo_class_match?/3</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(complex_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        KISS Violation (High Complexity): Function &#x27;pseudo_class_match?/3&#x27; in &#x27;Floki.Selector&#x27; defines 16 pattern-matching clauses / 16 branches; decompose into smaller routines
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector.ex:195:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[KISS_EXCESSIVE_CLAUSES]</span>
+                        KISS Violation (High Complexity): Function &#x27;pseudo_class_match?/3&#x27; in &#x27;Floki.Selector&#x27; defines 16 pattern-matching clauses / 16 branches; decompose into smaller routines <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector.ex:195:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="cyclomatic_complexity_kiss" data-status="violation" data-target="floki.finder.traverse_html_tuples/3">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#23 CYCLOMATIC_COMPLEXITY_KISS</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.Finder.traverse_html_tuples/3</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(complex_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        KISS Violation (High Complexity): Function &#x27;traverse_html_tuples/3&#x27; in &#x27;Floki.Finder&#x27; defines 10 pattern-matching clauses / 10 branches; decompose into smaller routines
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/finder.ex:172:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[KISS_EXCESSIVE_CLAUSES]</span>
+                        KISS Violation (High Complexity): Function &#x27;traverse_html_tuples/3&#x27; in &#x27;Floki.Finder&#x27; defines 10 pattern-matching clauses / 10 branches; decompose into smaller routines <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/finder.ex:172:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="cyclomatic_complexity_kiss" data-status="violation" data-target="floki.deeptext.get_text/6">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#24 CYCLOMATIC_COMPLEXITY_KISS</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.DeepText.get_text/6</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(complex_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        KISS Violation (High Complexity): Function &#x27;get_text/6&#x27; in &#x27;Floki.DeepText&#x27; defines 14 pattern-matching clauses / 14 branches; decompose into smaller routines
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/deep_text.ex:30:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[KISS_EXCESSIVE_CLAUSES]</span>
+                        KISS Violation (High Complexity): Function &#x27;get_text/6&#x27; in &#x27;Floki.DeepText&#x27; defines 14 pattern-matching clauses / 14 branches; decompose into smaller routines <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/deep_text.ex:30:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="cyclomatic_complexity_kiss" data-status="violation" data-target="floki.selector.attributeselector.match?/2">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#25 CYCLOMATIC_COMPLEXITY_KISS</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.Selector.AttributeSelector.match?/2</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(complex_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        KISS Violation (High Complexity): Function &#x27;match?/2&#x27; in &#x27;Floki.Selector.AttributeSelector&#x27; defines 13 pattern-matching clauses / 13 branches; decompose into smaller routines
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/attribute_selector.ex:49:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[KISS_EXCESSIVE_CLAUSES]</span>
+                        KISS Violation (High Complexity): Function &#x27;match?/2&#x27; in &#x27;Floki.Selector.AttributeSelector&#x27; defines 13 pattern-matching clauses / 13 branches; decompose into smaller routines <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/attribute_selector.ex:49:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="cyclomatic_complexity_kiss" data-status="violation" data-target="floki.selector.parser.do_parse/2">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#26 CYCLOMATIC_COMPLEXITY_KISS</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.Selector.Parser.do_parse/2</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(complex_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        KISS Violation (High Complexity): Function &#x27;do_parse/2&#x27; in &#x27;Floki.Selector.Parser&#x27; defines 22 pattern-matching clauses / 22 branches; decompose into smaller routines
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/parser.ex:40:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[KISS_EXCESSIVE_CLAUSES]</span>
+                        KISS Violation (High Complexity): Function &#x27;do_parse/2&#x27; in &#x27;Floki.Selector.Parser&#x27; defines 22 pattern-matching clauses / 22 branches; decompose into smaller routines <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/selector/parser.ex:40:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="cyclomatic_complexity_kiss" data-status="violation" data-target="floki.html.numericcharref.to_unicode_number/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#27 CYCLOMATIC_COMPLEXITY_KISS</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTML.NumericCharref.to_unicode_number/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(complex_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        KISS Violation (High Complexity): Function &#x27;to_unicode_number/1&#x27; in &#x27;Floki.HTML.NumericCharref&#x27; defines 30 pattern-matching clauses / 30 branches; decompose into smaller routines
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/numeric_charref.ex:5:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[KISS_EXCESSIVE_CLAUSES]</span>
+                        KISS Violation (High Complexity): Function &#x27;to_unicode_number/1&#x27; in &#x27;Floki.HTML.NumericCharref&#x27; defines 30 pattern-matching clauses / 30 branches; decompose into smaller routines <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/numeric_charref.ex:5:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="cyclomatic_complexity_kiss" data-status="violation" data-target="floki.entities.codepoints.get/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#28 CYCLOMATIC_COMPLEXITY_KISS</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.Entities.Codepoints.get/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(complex_function)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                75% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        KISS Violation (High Complexity): Function &#x27;get/1&#x27; in &#x27;Floki.Entities.Codepoints&#x27; defines 2232 pattern-matching clauses / 2232 branches; decompose into smaller routines
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/entities/codepoints.ex:10:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+75%</span>
+                        <span class="code-pill">[KISS_EXCESSIVE_CLAUSES]</span>
+                        KISS Violation (High Complexity): Function &#x27;get/1&#x27; in &#x27;Floki.Entities.Codepoints&#x27; defines 2232 pattern-matching clauses / 2232 branches; decompose into smaller routines <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/entities/codepoints.ex:10:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="duplicate_code_dry" data-status="violation" data-target="floki.htmlparser.html5ever.parse_document_with_attributes_as_maps/2">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#29 DUPLICATE_CODE_DRY</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTMLParser.Html5ever.parse_document_with_attributes_as_maps/2</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(dry_duplicated_code)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.Html5ever.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.Html5ever.parse_fragment_with_attributes_as_maps/2
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:28:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[DRY_CODE_DUPLICATION]</span>
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.Html5ever.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.Html5ever.parse_fragment_with_attributes_as_maps/2 <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/html5ever.ex:28:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="duplicate_code_dry" data-status="violation" data-target="floki.htmlparser.fasthtml.parse_document_with_attributes_as_maps/2">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#30 DUPLICATE_CODE_DRY</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTMLParser.FastHtml.parse_document_with_attributes_as_maps/2</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(dry_duplicated_code)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.FastHtml.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.FastHtml.parse_fragment_with_attributes_as_maps/2
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/fast_html.ex:18:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[DRY_CODE_DUPLICATION]</span>
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.FastHtml.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.FastHtml.parse_fragment_with_attributes_as_maps/2 <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/fast_html.ex:18:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="duplicate_code_dry" data-status="violation" data-target="floki.htmlparser.mochiweb.parse_document_with_attributes_as_maps/2">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#31 DUPLICATE_CODE_DRY</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTMLParser.Mochiweb.parse_document_with_attributes_as_maps/2</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(dry_duplicated_code)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.Mochiweb.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.Mochiweb.parse_fragment_with_attributes_as_maps/2
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/mochiweb.ex:27:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[DRY_CODE_DUPLICATION]</span>
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTMLParser.Mochiweb.parse_document_with_attributes_as_maps/2, Floki.HTMLParser.Mochiweb.parse_fragment_with_attributes_as_maps/2 <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html_parser/mochiweb.ex:27:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="duplicate_code_dry" data-status="violation" data-target="floki.html.tokenizer.script_data_double_escaped/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#32 DUPLICATE_CODE_DRY</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTML.Tokenizer.script_data_double_escaped/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(dry_duplicated_code)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.script_data_double_escaped/1, Floki.HTML.Tokenizer.script_data_double_escaped_dash/1
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:992:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[DRY_CODE_DUPLICATION]</span>
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.script_data_double_escaped/1, Floki.HTML.Tokenizer.script_data_double_escaped_dash/1 <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:992:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="duplicate_code_dry" data-status="violation" data-target="floki.html.tokenizer.after_attribute_name/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#33 DUPLICATE_CODE_DRY</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTML.Tokenizer.after_attribute_name/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(dry_duplicated_code)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        DRY Violation: Identical function logic duplicated across 7 location(s): Floki.HTML.Tokenizer.after_attribute_name/1, Floki.HTML.Tokenizer.attribute_value_unquoted/1, Floki.HTML.Tokenizer.after_attribute_value_quoted/1
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1275:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[DRY_CODE_DUPLICATION]</span>
+                        DRY Violation: Identical function logic duplicated across 7 location(s): Floki.HTML.Tokenizer.after_attribute_name/1, Floki.HTML.Tokenizer.attribute_value_unquoted/1, Floki.HTML.Tokenizer.after_attribute_value_quoted/1 <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1275:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="duplicate_code_dry" data-status="violation" data-target="floki.html.tokenizer.comment_start/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#34 DUPLICATE_CODE_DRY</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTML.Tokenizer.comment_start/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(dry_duplicated_code)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        DRY Violation: Identical function logic duplicated across 3 location(s): Floki.HTML.Tokenizer.comment_start/1, Floki.HTML.Tokenizer.comment_start_dash/1, Floki.HTML.Tokenizer.comment_end_bang/1
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1574:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[DRY_CODE_DUPLICATION]</span>
+                        DRY Violation: Identical function logic duplicated across 3 location(s): Floki.HTML.Tokenizer.comment_start/1, Floki.HTML.Tokenizer.comment_start_dash/1, Floki.HTML.Tokenizer.comment_end_bang/1 <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1574:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="duplicate_code_dry" data-status="violation" data-target="floki.html.tokenizer.after_doctype_public_keyword/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#35 DUPLICATE_CODE_DRY</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTML.Tokenizer.after_doctype_public_keyword/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(dry_duplicated_code)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_public_keyword/1, Floki.HTML.Tokenizer.before_doctype_public_identifier/1
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1987:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[DRY_CODE_DUPLICATION]</span>
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_public_keyword/1, Floki.HTML.Tokenizer.before_doctype_public_identifier/1 <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:1987:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="duplicate_code_dry" data-status="violation" data-target="floki.html.tokenizer.doctype_public_identifier_double_quoted/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#36 DUPLICATE_CODE_DRY</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTML.Tokenizer.doctype_public_identifier_double_quoted/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(dry_duplicated_code)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.doctype_public_identifier_double_quoted/1, Floki.HTML.Tokenizer.doctype_public_identifier_single_quoted/1
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2116:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[DRY_CODE_DUPLICATION]</span>
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.doctype_public_identifier_double_quoted/1, Floki.HTML.Tokenizer.doctype_public_identifier_single_quoted/1 <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2116:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="duplicate_code_dry" data-status="violation" data-target="floki.html.tokenizer.after_doctype_system_keyword/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#37 DUPLICATE_CODE_DRY</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTML.Tokenizer.after_doctype_system_keyword/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(dry_duplicated_code)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_system_keyword/1, Floki.HTML.Tokenizer.before_doctype_system_identifier/1
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2338:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[DRY_CODE_DUPLICATION]</span>
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_system_keyword/1, Floki.HTML.Tokenizer.before_doctype_system_identifier/1 <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2338:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="duplicate_code_dry" data-status="violation" data-target="floki.html.tokenizer.doctype_system_identifier_double_quoted/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#38 DUPLICATE_CODE_DRY</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTML.Tokenizer.doctype_system_identifier_double_quoted/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(dry_duplicated_code)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.doctype_system_identifier_double_quoted/1, Floki.HTML.Tokenizer.doctype_system_identifier_single_quoted/1
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2466:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[DRY_CODE_DUPLICATION]</span>
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.doctype_system_identifier_double_quoted/1, Floki.HTML.Tokenizer.doctype_system_identifier_single_quoted/1 <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2466:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+                <div class="pattern-card" data-category="principle" data-pattern="duplicate_code_dry" data-status="violation" data-target="floki.html.tokenizer.after_doctype_system_identifier/1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span class="ui mini yellow label">#39 DUPLICATE_CODE_DRY</span>
+                            <strong style="font-size: 16px; margin-left: 8px; color: #f8fafc;">Floki.HTML.Tokenizer.after_doctype_system_identifier/1</strong>
+                            <span style="color: #94a3b8; font-size: 13px;">(dry_duplicated_code)</span>
+                        </div>
+                        <div>
+                            <span class="ui mini label" style="background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4);">
+                                80% [HIGH]
+                            </span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 10px; font-size: 13px; color: #e2e8f0;">
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_system_identifier/1, Floki.HTML.Tokenizer.bogus_doctype/1
+                    </div>
+                    <div style="margin-top: 6px; font-size: 12px; color: #64748b;">
+                        <i class="map marker alternate icon"></i> /Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2576:1
+                    </div>
+                    <div class="evidence-box">
+                        <strong>Evidence Trail (1 heuristics):</strong>
+                        
+                    <div style="margin-top: 4px;">
+                        <span style="color: #a855f7; font-weight: 600;">+80%</span>
+                        <span class="code-pill">[DRY_CODE_DUPLICATION]</span>
+                        DRY Violation: Identical function logic duplicated across 2 location(s): Floki.HTML.Tokenizer.after_doctype_system_identifier/1, Floki.HTML.Tokenizer.bogus_doctype/1 <span class='code-pill'>/Volumes/External/Code/DPX-Elixir/benchmarks/floki/lib/floki/html/tokenizer.ex:2576:1</span>
+                    </div>
+                    
+                    </div>
+                </div>
+                
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.pattern-card');
+        const categoryBtns = document.querySelectorAll('.cat-filter-btn');
+        const statusBtns = document.querySelectorAll('.status-filter-btn');
+        const noViolationsAlert = document.getElementById('noViolationsAlert');
+        const noResultsMessage = document.getElementById('noResultsMessage');
+
+        let selectedCategory = 'all';
+        let selectedStatus = 'all';
+        let hidePrinciples = false;
+
+        function togglePrinciplesVisibility() {
+            hidePrinciples = !hidePrinciples;
+            const btn = document.getElementById('principlesToggleBtn');
+            const btnText = document.getElementById('principlesToggleText');
+            if (hidePrinciples) {
+                btn.classList.remove('basic');
+                btn.classList.add('purple');
+                btnText.textContent = 'Show Principles & Smells';
+            } else {
+                btn.classList.remove('purple');
+                btn.classList.add('basic');
+                btnText.textContent = 'Hide Principles & Smells';
+            }
+            updateStatusCounts();
+            filterCards();
+        }
+
+        function updateStatusCounts() {
+            let total = 0, violations = 0, adherences = 0, patterns = 0;
+            cards.forEach(card => {
+                const category = card.dataset.category || '';
+                const status = card.dataset.status || '';
+                if (hidePrinciples && category === 'principle') {
+                    return;
+                }
+                if (selectedCategory === 'all' || category === selectedCategory) {
+                    total++;
+                    if (status === 'violation') violations++;
+                    if (status === 'adherence') adherences++;
+                    if (status === 'pattern') patterns++;
+                }
+            });
+            document.getElementById('statusCountAll').textContent = total;
+            document.getElementById('statusCountViolation').textContent = violations;
+            document.getElementById('statusCountAdherence').textContent = adherences;
+            document.getElementById('statusCountPattern').textContent = patterns;
+        }
+
+        function filterCards() {
+            const query = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const text = card.textContent.toLowerCase();
+                const pattern = card.dataset.pattern || '';
+                const category = card.dataset.category || '';
+                const target = card.dataset.target || '';
+                const status = card.dataset.status || '';
+
+                if (hidePrinciples && category === 'principle') {
+                    card.style.display = 'none';
+                    return;
+                }
+
+                const matchesCategory = (selectedCategory === 'all' || category === selectedCategory);
+                const matchesStatus = (selectedStatus === 'all' || status === selectedStatus);
+                const matchesSearch = (!query || text.includes(query) || pattern.includes(query) || category.includes(query) || target.includes(query));
+
+                if (matchesCategory && matchesStatus && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (selectedStatus === 'violation' && visibleCount === 0) {
+                noViolationsAlert.style.display = 'flex';
+                noResultsMessage.style.display = 'none';
+            } else if (visibleCount === 0) {
+                noViolationsAlert.style.display = 'none';
+                noResultsMessage.style.display = 'block';
+            } else {
+                noViolationsAlert.style.display = 'none';
+                noResultsMessage.style.display = 'none';
+            }
+        }
+
+        searchInput.addEventListener('input', filterCards);
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedCategory = btn.dataset.filter;
+                updateStatusCounts();
+                filterCards();
+            });
+        });
+
+        statusBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                statusBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                selectedStatus = btn.dataset.status;
+                filterCards();
+            });
+        });
+
+        function copyArchMapForLlm() {
+            const rawText = document.getElementById('llmArchMapRaw').value;
+            const btn = document.getElementById('copyLlmBtn');
+            const originalHtml = btn.innerHTML;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(rawText).then(() => {
+                    btn.innerHTML = '<i class="check icon"></i> Copied to Clipboard!';
+                    setTimeout(() => { btn.innerHTML = originalHtml; }, 2000);
+                });
+            }
+        }
+
+        updateStatusCounts();
+    </script>
+</body>
+</html>

@@ -1,0 +1,2446 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "DPX-Elixir",
+          "semanticVersion": "0.1.0",
+          "rules": [
+            {
+              "id": "DPX-ELIXIR-GEN_SERVER",
+              "name": "gen_server",
+              "shortDescription": {
+                "text": "Elixir Pattern: Gen Server"
+              },
+              "fullDescription": {
+                "text": "Module 'Plug.Upload' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)"
+              },
+              "properties": {
+                "category": "otp_behaviour"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-SUPERVISOR",
+              "name": "supervisor",
+              "shortDescription": {
+                "text": "Elixir Pattern: Supervisor"
+              },
+              "fullDescription": {
+                "text": "Module 'Plug.Upload.Supervisor' adopts OTP Supervisor behaviour (`use Supervisor`)"
+              },
+              "properties": {
+                "category": "otp_behaviour"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-AGENT_STATE",
+              "name": "agent_state",
+              "shortDescription": {
+                "text": "Elixir Pattern: Agent State"
+              },
+              "fullDescription": {
+                "text": "Module 'Plug.BuilderTest' encapsulates state in an OTP Agent process (`use Agent`)"
+              },
+              "properties": {
+                "category": "otp_behaviour"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-TASK_ASYNC",
+              "name": "task_async",
+              "shortDescription": {
+                "text": "Elixir Pattern: Task Async"
+              },
+              "fullDescription": {
+                "text": "Function 'handle_token/1' coordinates asynchronous parallel tasks / streams via Task module"
+              },
+              "properties": {
+                "category": "actor_concurrency"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-APPLICATION",
+              "name": "application",
+              "shortDescription": {
+                "text": "Elixir Pattern: Application"
+              },
+              "fullDescription": {
+                "text": "Module 'Plug.Application' coordinates top-level application startup lifecycle (`use Application`)"
+              },
+              "properties": {
+                "category": "otp_behaviour"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-PROTOCOL_POLYMORPHISM",
+              "name": "protocol_polymorphism",
+              "shortDescription": {
+                "text": "Elixir Pattern: Protocol Polymorphism"
+              },
+              "fullDescription": {
+                "text": "Protocol 'Plug.Exception' defines extensible polymorphism contract via defprotocol"
+              },
+              "properties": {
+                "category": "functional_idiom"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-MACRO_METAPROGRAMMING",
+              "name": "macro_metaprogramming",
+              "shortDescription": {
+                "text": "Elixir Pattern: Macro Metaprogramming"
+              },
+              "fullDescription": {
+                "text": "Module 'Plug.Test' defines 1 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-PIPELINE_OPERATOR",
+              "name": "pipeline_operator",
+              "shortDescription": {
+                "text": "Elixir Pattern: Pipeline Operator"
+              },
+              "fullDescription": {
+                "text": "Function 'call_with_invalid_token/1' composes functional data transformations across a 3-stage pipe (`|>`)"
+              },
+              "properties": {
+                "category": "functional_idiom"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-PLUG_PIPELINE",
+              "name": "plug_pipeline",
+              "shortDescription": {
+                "text": "Elixir Pattern: Plug Pipeline"
+              },
+              "fullDescription": {
+                "text": "Module 'PlugTest' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-ETS_REGISTRY",
+              "name": "ets_registry",
+              "shortDescription": {
+                "text": "Elixir Pattern: Ets Registry"
+              },
+              "fullDescription": {
+                "text": "Module 'Plug.Session.ETSTest' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+              "name": "adapter_behaviour",
+              "shortDescription": {
+                "text": "Elixir Pattern: Adapter Behaviour"
+              },
+              "fullDescription": {
+                "text": "Module 'Plug' defines interchangeable Adapter Behaviour contract with 2 callback(s) (init/1, call/1)"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+              "name": "with_monadic_pipeline",
+              "shortDescription": {
+                "text": "Elixir Pattern: With Monadic Pipeline"
+              },
+              "fullDescription": {
+                "text": "Function 'valid_state_and_csrf_token?/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-STRATEGY_DISPATCH",
+              "name": "strategy_dispatch",
+              "shortDescription": {
+                "text": "Elixir Pattern: Strategy Dispatch"
+              },
+              "fullDescription": {
+                "text": "Function 'apply_mfa/1' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-STRING_TO_ATOM_VULNERABILITY",
+              "name": "string_to_atom_vulnerability",
+              "shortDescription": {
+                "text": "Elixir Pattern: String To Atom Vulnerability"
+              },
+              "fullDescription": {
+                "text": "Safety Audit (Atom Exhaustion Risk): Function 'conn/4' in 'Plug.Adapters.Test.Conn' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion"
+              },
+              "properties": {
+                "category": "safety"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-CYCLOMATIC_COMPLEXITY_KISS",
+              "name": "cyclomatic_complexity_kiss",
+              "shortDescription": {
+                "text": "Elixir Pattern: Cyclomatic Complexity Kiss"
+              },
+              "fullDescription": {
+                "text": "KISS Violation (High Complexity): Function 'call/2' in 'Plug.StaticTest' defines 1 pattern-matching clauses / 20 branches; decompose into smaller routines"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-DUPLICATE_CODE_DRY",
+              "name": "duplicate_code_dry",
+              "shortDescription": {
+                "text": "Elixir Pattern: Duplicate Code Dry"
+              },
+              "fullDescription": {
+                "text": "DRY Violation: Identical function logic duplicated across 2 location(s): Plug.TelemetryTest.attach/2, Plug.RouterTest.attach/2"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "DPX-ELIXIR-GEN_SERVER",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Upload' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload.ex"
+                },
+                "region": {
+                  "startLine": 5,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-GEN_SERVER",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Upload.Terminator' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload/terminator.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-SUPERVISOR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Upload.Supervisor' adopts OTP Supervisor behaviour (`use Supervisor`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload/supervisor.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-AGENT_STATE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.BuilderTest' encapsulates state in an OTP Agent process (`use Agent`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/builder_test.exs"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-TASK_ASYNC",
+          "level": "note",
+          "message": {
+            "text": "Function 'handle_token/1' coordinates asynchronous parallel tasks / streams via Task module"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/csrf_protection_test.exs"
+                },
+                "region": {
+                  "startLine": 50,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-TASK_ASYNC",
+          "level": "note",
+          "message": {
+            "text": "Function 'async_assign/4' coordinates asynchronous parallel tasks / streams via Task module"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn.ex"
+                },
+                "region": {
+                  "startLine": 339,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-APPLICATION",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Application' coordinates top-level application startup lifecycle (`use Application`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/application.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PROTOCOL_POLYMORPHISM",
+          "level": "note",
+          "message": {
+            "text": "Protocol 'Plug.Exception' defines extensible polymorphism contract via defprotocol"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/exceptions.ex"
+                },
+                "region": {
+                  "startLine": 4,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-MACRO_METAPROGRAMMING",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Test' defines 1 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/test.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-MACRO_METAPROGRAMMING",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Router' defines 12 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-MACRO_METAPROGRAMMING",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.ErrorHandler' defines 2 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/error_handler.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-MACRO_METAPROGRAMMING",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Builder' defines 2 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/builder.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'call_with_invalid_token/1' composes functional data transformations across a 3-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/csrf_protection_test.exs"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'call_csrf_with_session/2' composes functional data transformations across a 7-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/csrf_protection_test.exs"
+                },
+                "region": {
+                  "startLine": 39,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'call/2' composes functional data transformations across a 47-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/static_test.exs"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'returns_nil/0' composes functional data transformations across a 43-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/debugger_test.exs"
+                },
+                "region": {
+                  "startLine": 82,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'call/2' composes functional data transformations across a 8-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex"
+                },
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'merge_params/4' composes functional data transformations across a 3-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers.ex"
+                },
+                "region": {
+                  "startLine": 370,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'fetch_session/1' composes functional data transformations across a 3-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session.ex"
+                },
+                "region": {
+                  "startLine": 72,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'get_req_header/2' composes functional data transformations across a 17-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn.ex"
+                },
+                "region": {
+                  "startLine": 692,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'configure/1' composes functional data transformations across a 7-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex"
+                },
+                "region": {
+                  "startLine": 170,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'set_secure_defaults/1' composes functional data transformations across a 4-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex"
+                },
+                "region": {
+                  "startLine": 271,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'set_strong_tls_defaults/1' composes functional data transformations across a 3-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex"
+                },
+                "region": {
+                  "startLine": 303,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'set_compatible_tls_defaults/1' composes functional data transformations across a 3-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex"
+                },
+                "region": {
+                  "startLine": 310,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'validate_ciphers/1' composes functional data transformations across a 3-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex"
+                },
+                "region": {
+                  "startLine": 317,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'keynew/4' composes functional data transformations across a 3-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex"
+                },
+                "region": {
+                  "startLine": 342,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function '__before_compile__/1' composes functional data transformations across a 8-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/builder.ex"
+                },
+                "region": {
+                  "startLine": 172,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'init/1' composes functional data transformations across a 5-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex"
+                },
+                "region": {
+                  "startLine": 157,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'serve_static/5' composes functional data transformations across a 8-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex"
+                },
+                "region": {
+                  "startLine": 257,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'send_range/6' composes functional data transformations across a 3-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex"
+                },
+                "region": {
+                  "startLine": 331,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'send_unsatisfiable_range/3' composes functional data transformations across a 4-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex"
+                },
+                "region": {
+                  "startLine": 344,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'send_entire_file/3' composes functional data transformations across a 3-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex"
+                },
+                "region": {
+                  "startLine": 352,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'conn/4' composes functional data transformations across a 6-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/adapters/test/conn.ex"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'build_host_match/1' composes functional data transformations across a 8-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router/utils.ex"
+                },
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'PlugTest' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug_test.exs"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.ProcessStore' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/test_helper.exs"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.BuilderTest' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/builder_test.exs"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.TelemetryTest' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/telemetry_test.exs"
+                },
+                "region": {
+                  "startLine": 3,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.RouterTest' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/router_test.exs"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.ErrorHandlerTest' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/error_handler_test.exs"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.LoggerTest' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/logger_test.exs"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.StaticTest' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/static_test.exs"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'FilterPlug' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/static_test.exs"
+                },
+                "region": {
+                  "startLine": 863,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.DebuggerTest' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/debugger_test.exs"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.CSRFProtection' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/csrf_protection.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.RewriteOn' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Telemetry' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/telemetry.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Parsers' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Session' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Logger' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/logger.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Router' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.ErrorHandler' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/error_handler.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.SSL' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.BasicAuth' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/basic_auth.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Debugger' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/debugger.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Builder' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/builder.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.RequestId' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/request_id.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Head' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/head.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.MethodOverride' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/method_override.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Static' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Parsers.MULTIPART' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/multipart.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Parsers.URLENCODED' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/urlencoded.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Parsers.JSON' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/json.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Adapters.Test.Conn' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/adapters/test/conn.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Session.ETS' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/ets.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PLUG_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Session.COOKIE' coordinates HTTP connection middleware processing pipeline (`Plug`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/cookie.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ETS_REGISTRY",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Session.ETSTest' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/session/ets_test.exs"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ETS_REGISTRY",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Application' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/application.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ETS_REGISTRY",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Upload.Supervisor' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload/supervisor.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ETS_REGISTRY",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Session.ETS' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/ets.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug' defines interchangeable Adapter Behaviour contract with 2 callback(s) (init/1, call/1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Parsers' defines interchangeable Adapter Behaviour contract with 2 callback(s) (init/1, parse/1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.ErrorHandler' defines interchangeable Adapter Behaviour contract with 1 callback(s) (handle_errors/1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/error_handler.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Conn.Adapter' defines interchangeable Adapter Behaviour contract with 12 callback(s) (send_resp/2, send_file/2, send_chunked/2, chunk/2, read_req_body/2, push/2, inform/2, upgrade/3, get_peer_data/1, get_sock_data/1, get_ssl_data/1, get_http_protocol/1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn/adapter.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Plug.Session.Store' defines interchangeable Adapter Behaviour contract with 4 callback(s) (init/1, get/1, put/1, delete/1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/store.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'valid_state_and_csrf_token?/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/csrf_protection.ex"
+                },
+                "region": {
+                  "startLine": 206,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'put_port/2' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex"
+                },
+                "region": {
+                  "startLine": 123,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'put_remote_ip/2' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex"
+                },
+                "region": {
+                  "startLine": 133,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'give_away/3' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/upload.ex"
+                },
+                "region": {
+                  "startLine": 87,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'get_req_header/2' implements Railway-oriented Monadic pipeline with 7 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn.ex"
+                },
+                "region": {
+                  "startLine": 692,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'auth/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/basic_auth.ex"
+                },
+                "region": {
+                  "startLine": 41,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'basic_auth/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/basic_auth.ex"
+                },
+                "region": {
+                  "startLine": 98,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'parse_basic_auth/1' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/basic_auth.ex"
+                },
+                "region": {
+                  "startLine": 123,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'override_method/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/method_override.ex"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'serve_range/5' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex"
+                },
+                "region": {
+                  "startLine": 285,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'multipart_type/1' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/multipart.ex"
+                },
+                "region": {
+                  "startLine": 281,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'decode_each/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn/query.ex"
+                },
+                "region": {
+                  "startLine": 191,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'apply_mfa/1' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/session/cookie_test.exs"
+                },
+                "region": {
+                  "startLine": 62,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'do_forward/3' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug.ex"
+                },
+                "region": {
+                  "startLine": 177,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'call/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex"
+                },
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'keynew/4' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/ssl.ex"
+                },
+                "region": {
+                  "startLine": 342,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'etag_for_path/3' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex"
+                },
+                "region": {
+                  "startLine": 405,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'path/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex"
+                },
+                "region": {
+                  "startLine": 462,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'merge_headers/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/static.ex"
+                },
+                "region": {
+                  "startLine": 484,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'parse_multipart/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/multipart.ex"
+                },
+                "region": {
+                  "startLine": 142,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'parse/5' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/urlencoded.ex"
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'read_body/3' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/json.ex"
+                },
+                "region": {
+                  "startLine": 85,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'decode/3' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/parsers/json.ex"
+                },
+                "region": {
+                  "startLine": 88,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'conn/4' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/adapters/test/conn.ex"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'derive/3' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/session/cookie.ex"
+                },
+                "region": {
+                  "startLine": 166,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRING_TO_ATOM_VULNERABILITY",
+          "level": "error",
+          "message": {
+            "text": "Safety Audit (Atom Exhaustion Risk): Function 'conn/4' in 'Plug.Adapters.Test.Conn' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/adapters/test/conn.ex"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRING_TO_ATOM_VULNERABILITY",
+          "level": "error",
+          "message": {
+            "text": "Safety Audit (Atom Exhaustion Risk): Function 'conn/5' in 'Plug.Conn.Adapter' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn/adapter.ex"
+                },
+                "region": {
+                  "startLine": 37,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRING_TO_ATOM_VULNERABILITY",
+          "level": "error",
+          "message": {
+            "text": "Safety Audit (Atom Exhaustion Risk): Function 'build_host_match/1' in 'Plug.Router.Utils' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router/utils.ex"
+                },
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'call/2' in 'Plug.StaticTest' defines 1 pattern-matching clauses / 20 branches; decompose into smaller routines"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/static_test.exs"
+                },
+                "region": {
+                  "startLine": 13,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'decode!/1' in 'Plug.Parsers.JSONTest' defines 11 pattern-matching clauses / 11 branches; decompose into smaller routines"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/parsers/json_test.exs"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'call/2' in 'Plug.RewriteOn' defines 11 pattern-matching clauses / 11 branches; decompose into smaller routines"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/rewrite_on.ex"
+                },
+                "region": {
+                  "startLine": 44,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'get_req_header/2' in 'Plug.Conn' defines 1 pattern-matching clauses / 99 branches; decompose into smaller routines"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/conn.ex"
+                },
+                "region": {
+                  "startLine": 692,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function '__before_compile__/1' in 'Plug.Builder' defines 1 pattern-matching clauses / 16 branches; decompose into smaller routines"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/builder.ex"
+                },
+                "region": {
+                  "startLine": 172,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'build_host_match/1' in 'Plug.Router.Utils' defines 1 pattern-matching clauses / 15 branches; decompose into smaller routines"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/lib/plug/router/utils.ex"
+                },
+                "region": {
+                  "startLine": 47,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical function logic duplicated across 2 location(s): Plug.TelemetryTest.attach/2, Plug.RouterTest.attach/2"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/plug/test/plug/telemetry_test.exs"
+                },
+                "region": {
+                  "startLine": 116,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

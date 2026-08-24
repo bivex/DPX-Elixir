@@ -1,0 +1,270 @@
+{
+  "project_path": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples",
+  "scanned_files_count": 5,
+  "total_detections_count": 11,
+  "elapsed_seconds": 0.0015,
+  "summary_by_category": {
+    "otp_behaviour": 2,
+    "functional_idiom": 1,
+    "structural": 3,
+    "behavioral": 2,
+    "safety": 3
+  },
+  "summary_by_confidence_level": {
+    "low": 0,
+    "medium": 0,
+    "high": 7,
+    "very_high": 4
+  },
+  "detections": [
+    {
+      "pattern_type": "gen_server",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Core.OrderServer",
+      "target_kind": "genserver_module",
+      "confidence": {
+        "score": 0.94,
+        "level": "very_high",
+        "percentage": "94%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Core.OrderServer' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)",
+          "weight": 0.75,
+          "rule_code": "GEN_SERVER_USE_DECLARATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1"
+        },
+        {
+          "description": "Implements 3 core GenServer callback(s) (init/1, handle_call/3, handle_cast/2)",
+          "weight": 0.6,
+          "rule_code": "GEN_SERVER_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1"
+        },
+        {
+          "description": "Provides canonical starter function 'start_link/1'",
+          "weight": 0.4,
+          "rule_code": "GEN_SERVER_START_LINK",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:12:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "supervisor",
+      "pattern_category": "otp_behaviour",
+      "target_name": "Core.AppSupervisor",
+      "target_kind": "supervisor_module",
+      "confidence": {
+        "score": 0.9125,
+        "level": "very_high",
+        "percentage": "91%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/app_supervisor.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Core.AppSupervisor' adopts OTP Supervisor behaviour (`use Supervisor`)",
+          "weight": 0.75,
+          "rule_code": "SUPERVISOR_USE_DECLARATION",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/app_supervisor.ex:1:1"
+        },
+        {
+          "description": "Defines supervisor child specifications and restart strategy ':one_for_one'",
+          "weight": 0.65,
+          "rule_code": "SUPERVISOR_INIT_STRATEGY",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/app_supervisor.ex:12:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "pipeline_operator",
+      "pattern_category": "functional_idiom",
+      "target_name": "Core.OrderPipeline.process_checkout/1",
+      "target_kind": "pipeline_function",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_pipeline.ex:6:1",
+      "evidences": [
+        {
+          "description": "Function 'process_checkout/1' composes functional data transformations across a 5-stage pipe (`|>`)",
+          "weight": 0.75,
+          "rule_code": "PIPELINE_OPERATOR_CHAIN",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_pipeline.ex:6:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "plug_pipeline",
+      "pattern_category": "structural",
+      "target_name": "Core.OrderServer",
+      "target_kind": "plug_module",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Core.OrderServer' coordinates HTTP connection middleware processing pipeline (`Plug`)",
+          "weight": 0.85,
+          "rule_code": "PLUG_MIDDLEWARE_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "facade_context",
+      "pattern_category": "structural",
+      "target_name": "Core.Accounts",
+      "target_kind": "context_facade_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/accounts_facade.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Core.Accounts' serves as a Phoenix Context Facade encapsulating business operations (get_user!, list_users, create_user, update_user)",
+          "weight": 0.8,
+          "rule_code": "PHOENIX_CONTEXT_FACADE",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/accounts_facade.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "adapter_behaviour",
+      "pattern_category": "structural",
+      "target_name": "Core.OrderServer",
+      "target_kind": "adapter_behaviour_module",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1",
+      "evidences": [
+        {
+          "description": "Module 'Core.OrderServer' defines interchangeable Adapter Behaviour contract with 1 callback(s) (format_order/1)",
+          "weight": 0.8,
+          "rule_code": "ADAPTER_BEHAVIOUR_CALLBACKS",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:1:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "command_tagged_tuple",
+      "pattern_category": "behavioral",
+      "target_name": "Core.OrderServer.handle_call/3",
+      "target_kind": "command_dispatcher",
+      "confidence": {
+        "score": 0.75,
+        "level": "high",
+        "percentage": "75%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:22:1",
+      "evidences": [
+        {
+          "description": "Function handle_call/3 in 'Core.OrderServer' pattern matches on 2 distinct Command tagged tuples",
+          "weight": 0.75,
+          "rule_code": "COMMAND_TAGGED_TUPLE_DISPATCH",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_server.ex:22:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "with_monadic_pipeline",
+      "pattern_category": "behavioral",
+      "target_name": "Core.OrderPipeline.execute_payment/2",
+      "target_kind": "railway_pipeline_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_pipeline.ex:15:1",
+      "evidences": [
+        {
+          "description": "Function 'execute_payment/2' implements Railway-oriented Monadic pipeline with 3 sequential pattern matches (`with`)",
+          "weight": 0.8,
+          "rule_code": "WITH_RAILWAY_PIPELINE",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/order_pipeline.ex:15:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "defensive_rescue_smell",
+      "pattern_category": "safety",
+      "target_name": "Core.BadWorker.defensive_rescue_antipattern/1",
+      "target_kind": "defensive_function",
+      "confidence": {
+        "score": 0.85,
+        "level": "very_high",
+        "percentage": "85%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:16:1",
+      "evidences": [
+        {
+          "description": "Let-It-Crash Violation: Function 'defensive_rescue_antipattern/1' in 'Core.BadWorker' defensively swallows errors (`rescue _ -> nil`); let processes fail fast and restart cleanly via Supervisor",
+          "weight": 0.85,
+          "rule_code": "DEFENSIVE_RESCUE_SWALLOW",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:16:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "unbounded_process_spawn",
+      "pattern_category": "safety",
+      "target_name": "Core.BadWorker.unsafe_handler/1",
+      "target_kind": "unsupervised_spawn_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:6:1",
+      "evidences": [
+        {
+          "description": "Safety Audit (Unsupervised Process): Function 'unsafe_handler/1' in 'Core.BadWorker' calls raw `spawn/spawn_link`; use `Task.Supervisor` for fault tolerance and supervision",
+          "weight": 0.8,
+          "rule_code": "UNSUPERVISED_PROCESS_SPAWN",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:6:1"
+        }
+      ],
+      "metadata": {}
+    },
+    {
+      "pattern_type": "string_to_atom_vulnerability",
+      "pattern_category": "safety",
+      "target_name": "Core.BadWorker.unsafe_handler/1",
+      "target_kind": "unsafe_atom_function",
+      "confidence": {
+        "score": 0.8,
+        "level": "high",
+        "percentage": "80%"
+      },
+      "primary_location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:6:1",
+      "evidences": [
+        {
+          "description": "Safety Audit (Atom Exhaustion Risk): Function 'unsafe_handler/1' in 'Core.BadWorker' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion",
+          "weight": 0.8,
+          "rule_code": "DYNAMIC_STRING_TO_ATOM",
+          "location": "/Volumes/External/Code/DPX-Elixir/examples/elixir_samples/bad_worker.ex:6:1"
+        }
+      ],
+      "metadata": {}
+    }
+  ]
+}

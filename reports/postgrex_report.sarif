@@ -1,0 +1,1692 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "DPX-Elixir",
+          "semanticVersion": "0.1.0",
+          "rules": [
+            {
+              "id": "DPX-ELIXIR-GEN_SERVER",
+              "name": "gen_server",
+              "shortDescription": {
+                "text": "Elixir Pattern: Gen Server"
+              },
+              "fullDescription": {
+                "text": "Implements 3 core GenServer callback(s) (init/1, handle_call/3, handle_info/2)"
+              },
+              "properties": {
+                "category": "otp_behaviour"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-SUPERVISOR",
+              "name": "supervisor",
+              "shortDescription": {
+                "text": "Elixir Pattern: Supervisor"
+              },
+              "fullDescription": {
+                "text": "Module 'Postgrex.TypeSupervisor' adopts OTP Supervisor behaviour (`use Supervisor`)"
+              },
+              "properties": {
+                "category": "otp_behaviour"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-TASK_ASYNC",
+              "name": "task_async",
+              "shortDescription": {
+                "text": "Elixir Pattern: Task Async"
+              },
+              "fullDescription": {
+                "text": "Function 'task_run/2' coordinates asynchronous parallel tasks / streams via Task module"
+              },
+              "properties": {
+                "category": "actor_concurrency"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-APPLICATION",
+              "name": "application",
+              "shortDescription": {
+                "text": "Elixir Pattern: Application"
+              },
+              "fullDescription": {
+                "text": "Module 'Postgrex.App' coordinates top-level application startup lifecycle (`use Application`)"
+              },
+              "properties": {
+                "category": "otp_behaviour"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-PROTOCOL_POLYMORPHISM",
+              "name": "protocol_polymorphism",
+              "shortDescription": {
+                "text": "Elixir Pattern: Protocol Polymorphism"
+              },
+              "fullDescription": {
+                "text": "Implementation 'Enumerable.Postgrex.Stream' provides concrete protocol implementation for Postgrex.Stream"
+              },
+              "properties": {
+                "category": "functional_idiom"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-MACRO_METAPROGRAMMING",
+              "name": "macro_metaprogramming",
+              "shortDescription": {
+                "text": "Elixir Pattern: Macro Metaprogramming"
+              },
+              "fullDescription": {
+                "text": "Module 'Postgrex.TestHelper' defines 7 compile-time macro(s) for DSL metaprogramming"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-PIPELINE_OPERATOR",
+              "name": "pipeline_operator",
+              "shortDescription": {
+                "text": "Elixir Pattern: Pipeline Operator"
+              },
+              "fullDescription": {
+                "text": "Function 'range_x_range/5' composes functional data transformations across a 4-stage pipe (`|>`)"
+              },
+              "properties": {
+                "category": "functional_idiom"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-ETS_REGISTRY",
+              "name": "ets_registry",
+              "shortDescription": {
+                "text": "Elixir Pattern: Ets Registry"
+              },
+              "fullDescription": {
+                "text": "Module 'Postgrex.Protocol' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+              "name": "adapter_behaviour",
+              "shortDescription": {
+                "text": "Elixir Pattern: Adapter Behaviour"
+              },
+              "fullDescription": {
+                "text": "Module 'Postgrex.ReplicationConnection' defines interchangeable Adapter Behaviour contract with 7 callback(s) (init/1, handle_connect/1, handle_disconnect/1, handle_data/2, handle_info/2, handle_call/2, handle_result/1)"
+              },
+              "properties": {
+                "category": "structural"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-COMMAND_TAGGED_TUPLE",
+              "name": "command_tagged_tuple",
+              "shortDescription": {
+                "text": "Elixir Pattern: Command Tagged Tuple"
+              },
+              "fullDescription": {
+                "text": "Function handle_call/3 in 'ReplicationTest' pattern matches on 5 distinct Command tagged tuples"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+              "name": "with_monadic_pipeline",
+              "shortDescription": {
+                "text": "Elixir Pattern: With Monadic Pipeline"
+              },
+              "fullDescription": {
+                "text": "Function 'binary_query/4' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-STRATEGY_DISPATCH",
+              "name": "strategy_dispatch",
+              "shortDescription": {
+                "text": "Elixir Pattern: Strategy Dispatch"
+              },
+              "fullDescription": {
+                "text": "Function 'handle/5' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-STATE_MACHINE_STATEX",
+              "name": "state_machine_statex",
+              "shortDescription": {
+                "text": "Elixir Pattern: State Machine Statex"
+              },
+              "fullDescription": {
+                "text": "Module 'Postgrex.ReplicationConnection' implements Finite State Machine behaviour (`@behaviour :gen_statem`)"
+              },
+              "properties": {
+                "category": "behavioral"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-UNBOUNDED_PROCESS_SPAWN",
+              "name": "unbounded_process_spawn",
+              "shortDescription": {
+                "text": "Elixir Pattern: Unbounded Process Spawn"
+              },
+              "fullDescription": {
+                "text": "Safety Audit (Unsupervised Process): Function 'new_status/2' in 'Postgrex.Protocol' calls raw `spawn/spawn_link`; use `Task.Supervisor` for fault tolerance and supervision"
+              },
+              "properties": {
+                "category": "safety"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-STRING_TO_ATOM_VULNERABILITY",
+              "name": "string_to_atom_vulnerability",
+              "shortDescription": {
+                "text": "Elixir Pattern: String To Atom Vulnerability"
+              },
+              "fullDescription": {
+                "text": "Safety Audit (Atom Exhaustion Risk): Function 'new_status/2' in 'Postgrex.Protocol' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion"
+              },
+              "properties": {
+                "category": "safety"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-CYCLOMATIC_COMPLEXITY_KISS",
+              "name": "cyclomatic_complexity_kiss",
+              "shortDescription": {
+                "text": "Elixir Pattern: Cyclomatic Complexity Kiss"
+              },
+              "fullDescription": {
+                "text": "KISS Violation (High Complexity): Function 'new_status/2' in 'Postgrex.Protocol' defines 1 pattern-matching clauses / 172 branches; decompose into smaller routines"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-DUPLICATE_CODE_DRY",
+              "name": "duplicate_code_dry",
+              "shortDescription": {
+                "text": "Elixir Pattern: Duplicate Code Dry"
+              },
+              "fullDescription": {
+                "text": "DRY Violation: Identical function logic duplicated across 2 location(s): NotificationTest.disconnect/1, SimpleConnectionTest.disconnect/1"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            },
+            {
+              "id": "DPX-ELIXIR-CIRCULAR_MODULE_DEPENDENCY",
+              "name": "circular_module_dependency",
+              "shortDescription": {
+                "text": "Elixir Pattern: Circular Module Dependency"
+              },
+              "fullDescription": {
+                "text": "Circular Module Dependency detected: Postgrex.TypeModule ➔ Postgrex.Types ➔ Postgrex.TypeModule"
+              },
+              "properties": {
+                "category": "principle"
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "DPX-ELIXIR-GEN_SERVER",
+          "level": "note",
+          "message": {
+            "text": "Implements 3 core GenServer callback(s) (init/1, handle_call/3, handle_info/2)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/replication_connection_test.exs"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-GEN_SERVER",
+          "level": "note",
+          "message": {
+            "text": "Implements 3 core GenServer callback(s) (init/1, handle_call/3, handle_info/2)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/simple_connection_test.exs"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-GEN_SERVER",
+          "level": "note",
+          "message": {
+            "text": "Implements 2 core GenServer callback(s) (init/1, handle_call/3)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-GEN_SERVER",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.TypeServer' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_server.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-GEN_SERVER",
+          "level": "note",
+          "message": {
+            "text": "Implements 3 core GenServer callback(s) (init/1, handle_call/3, handle_info/2)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/notifications.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-GEN_SERVER",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.Parameters' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/parameters.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-GEN_SERVER",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.SCRAM.LockedCache' explicitly adopts OTP GenServer actor behaviour (`use GenServer`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/scram/locked_cache.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-SUPERVISOR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.TypeSupervisor' adopts OTP Supervisor behaviour (`use Supervisor`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_supervisor.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-TASK_ASYNC",
+          "level": "note",
+          "message": {
+            "text": "Function 'task_run/2' coordinates asynchronous parallel tasks / streams via Task module"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/scram/locked_cache_test.exs"
+                },
+                "region": {
+                  "startLine": 78,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-APPLICATION",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.App' coordinates top-level application startup lifecycle (`use Application`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/app.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PROTOCOL_POLYMORPHISM",
+          "level": "note",
+          "message": {
+            "text": "Implementation 'Enumerable.Postgrex.Stream' provides concrete protocol implementation for Postgrex.Stream"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/stream.ex"
+                },
+                "region": {
+                  "startLine": 24,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PROTOCOL_POLYMORPHISM",
+          "level": "note",
+          "message": {
+            "text": "Implementation 'Collectable.Postgrex.Stream' provides concrete protocol implementation for Postgrex.Stream"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/stream.ex"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PROTOCOL_POLYMORPHISM",
+          "level": "note",
+          "message": {
+            "text": "Implementation 'DBConnection.Query.Postgrex.Copy' provides concrete protocol implementation for Postgrex.Copy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/stream.ex"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PROTOCOL_POLYMORPHISM",
+          "level": "note",
+          "message": {
+            "text": "Implementation 'String.Chars.Postgrex.Copy' provides concrete protocol implementation for Postgrex.Copy"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/stream.ex"
+                },
+                "region": {
+                  "startLine": 126,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PROTOCOL_POLYMORPHISM",
+          "level": "note",
+          "message": {
+            "text": "Implementation 'DBConnection.Query.Postgrex.Query' provides concrete protocol implementation for Postgrex.Query"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/query.ex"
+                },
+                "region": {
+                  "startLine": 54,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PROTOCOL_POLYMORPHISM",
+          "level": "note",
+          "message": {
+            "text": "Implementation 'Table.Reader.Postgrex.Result' provides concrete protocol implementation for Postgrex.Result"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/result.ex"
+                },
+                "region": {
+                  "startLine": 29,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PROTOCOL_POLYMORPHISM",
+          "level": "note",
+          "message": {
+            "text": "Implementation 'DBConnection.Query.Postgrex.TextQuery' provides concrete protocol implementation for Postgrex.TextQuery"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/text_query.ex"
+                },
+                "region": {
+                  "startLine": 7,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PROTOCOL_POLYMORPHISM",
+          "level": "note",
+          "message": {
+            "text": "Implementation 'DBConnection.Query.Postgrex.Parameters' provides concrete protocol implementation for Postgrex.Parameters"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/parameters.ex"
+                },
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-MACRO_METAPROGRAMMING",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.TestHelper' defines 7 compile-time macro(s) for DSL metaprogramming"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/test_helper.exs"
+                },
+                "region": {
+                  "startLine": 231,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-MACRO_METAPROGRAMMING",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.ReplicationConnection' defines 1 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-MACRO_METAPROGRAMMING",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.Protocol' defines 1 compile-time macro(s) for DSL metaprogramming"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-MACRO_METAPROGRAMMING",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.BinaryExtension' defines 1 compile-time macro(s) for DSL metaprogramming and provides `__using__/1` macro injection"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/binary_extension.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-MACRO_METAPROGRAMMING",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.BinaryUtils' defines 1 compile-time macro(s) for DSL metaprogramming"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/binary_utils.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'range_x_range/5' composes functional data transformations across a 4-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/stream_test.exs"
+                },
+                "region": {
+                  "startLine": 217,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'range_x_cast/3' composes functional data transformations across a 4-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/stream_test.exs"
+                },
+                "region": {
+                  "startLine": 248,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'new_status/2' composes functional data transformations across a 23-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex"
+                },
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'parse_version/1' composes functional data transformations across a 4-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/utils.ex"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-PIPELINE_OPERATOR",
+          "level": "note",
+          "message": {
+            "text": "Function 'default_opts/1' composes functional data transformations across a 8-stage pipe (`|>`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/utils.ex"
+                },
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ETS_REGISTRY",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.Protocol' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ETS_REGISTRY",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.Types' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ETS_REGISTRY",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.TypeSupervisor' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_supervisor.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ETS_REGISTRY",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.Parameters' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/parameters.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ETS_REGISTRY",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.SCRAM.LockedCache' utilizes Registry / :ets shared memory for zero-copy concurrent process lookup and caching"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/scram/locked_cache.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.ReplicationConnection' defines interchangeable Adapter Behaviour contract with 7 callback(s) (init/1, handle_connect/1, handle_disconnect/1, handle_data/2, handle_info/2, handle_call/2, handle_result/1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.SimpleConnection' defines interchangeable Adapter Behaviour contract with 7 callback(s) (init/1, notify/3, handle_connect/1, handle_disconnect/1, handle_call/3, handle_info/2, handle_result/1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.Extension' defines interchangeable Adapter Behaviour contract with 6 callback(s) (init/1, prelude/1, matching/1, format/1, encode/1, decode/1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extension.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-ADAPTER_BEHAVIOUR",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.SuperExtension' defines interchangeable Adapter Behaviour contract with 6 callback(s) (init/1, matching/1, format/1, oids/1, encode/1, decode/1)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/super_extension.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-COMMAND_TAGGED_TUPLE",
+          "level": "note",
+          "message": {
+            "text": "Function handle_call/3 in 'ReplicationTest' pattern matches on 5 distinct Command tagged tuples"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/replication_connection_test.exs"
+                },
+                "region": {
+                  "startLine": 91,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-COMMAND_TAGGED_TUPLE",
+          "level": "note",
+          "message": {
+            "text": "Function handle_call/3 in 'SimpleConnectionTest' pattern matches on 2 distinct Command tagged tuples"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/simple_connection_test.exs"
+                },
+                "region": {
+                  "startLine": 38,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-COMMAND_TAGGED_TUPLE",
+          "level": "note",
+          "message": {
+            "text": "Function handle_call/3 in 'Postgrex.SimpleConnection' pattern matches on 3 distinct Command tagged tuples"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex"
+                },
+                "region": {
+                  "startLine": 26,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-COMMAND_TAGGED_TUPLE",
+          "level": "note",
+          "message": {
+            "text": "Function handle_call/3 in 'Postgrex.TypeServer' pattern matches on 3 distinct Command tagged tuples"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_server.ex"
+                },
+                "region": {
+                  "startLine": 73,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-COMMAND_TAGGED_TUPLE",
+          "level": "note",
+          "message": {
+            "text": "Function handle_call/3 in 'Postgrex.Notifications' pattern matches on 2 distinct Command tagged tuples"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/notifications.ex"
+                },
+                "region": {
+                  "startLine": 250,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'binary_query/4' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex.ex"
+                },
+                "region": {
+                  "startLine": 333,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'handle_data/2' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex"
+                },
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'decode_lsn/1' implements Railway-oriented Monadic pipeline with 5 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex"
+                },
+                "region": {
+                  "startLine": 446,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'handle/5' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex"
+                },
+                "region": {
+                  "startLine": 604,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'new_status/2' implements Railway-oriented Monadic pipeline with 124 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex"
+                },
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-WITH_MONADIC_PIPELINE",
+          "level": "note",
+          "message": {
+            "text": "Function 'handle/5' implements Railway-oriented Monadic pipeline with 2 sequential pattern matches (`with`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex"
+                },
+                "region": {
+                  "startLine": 455,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'handle/5' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex"
+                },
+                "region": {
+                  "startLine": 604,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'handle_event/4' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex"
+                },
+                "region": {
+                  "startLine": 350,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'handle/5' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex"
+                },
+                "region": {
+                  "startLine": 455,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'find/4' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex"
+                },
+                "region": {
+                  "startLine": 180,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'encode_params/3' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex"
+                },
+                "region": {
+                  "startLine": 380,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'decode_rows/4' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex"
+                },
+                "region": {
+                  "startLine": 388,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'decode_simple/2' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/types.ex"
+                },
+                "region": {
+                  "startLine": 394,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRATEGY_DISPATCH",
+          "level": "note",
+          "message": {
+            "text": "Function 'default_opts/1' dynamically dispatches behavior to pluggable Strategy/Adapter modules"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/utils.ex"
+                },
+                "region": {
+                  "startLine": 90,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STATE_MACHINE_STATEX",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.ReplicationConnection' implements Finite State Machine behaviour (`@behaviour :gen_statem`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STATE_MACHINE_STATEX",
+          "level": "note",
+          "message": {
+            "text": "Module 'Postgrex.SimpleConnection' implements Finite State Machine behaviour (`@behaviour :gen_statem`)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/simple_connection.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-UNBOUNDED_PROCESS_SPAWN",
+          "level": "error",
+          "message": {
+            "text": "Safety Audit (Unsupervised Process): Function 'new_status/2' in 'Postgrex.Protocol' calls raw `spawn/spawn_link`; use `Task.Supervisor` for fault tolerance and supervision"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex"
+                },
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-STRING_TO_ATOM_VULNERABILITY",
+          "level": "error",
+          "message": {
+            "text": "Safety Audit (Atom Exhaustion Risk): Function 'new_status/2' in 'Postgrex.Protocol' calls `String.to_atom/1` on dynamic data; use `String.to_existing_atom/1` to prevent VM memory exhaustion"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex"
+                },
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'new_status/2' in 'Postgrex.Protocol' defines 1 pattern-matching clauses / 172 branches; decompose into smaller routines"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/protocol.ex"
+                },
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'directives/2' in 'Postgrex.TypeModule' defines 1 pattern-matching clauses / 21 branches; decompose into smaller routines"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_module.ex"
+                },
+                "region": {
+                  "startLine": 61,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-CYCLOMATIC_COMPLEXITY_KISS",
+          "level": "error",
+          "message": {
+            "text": "KISS Violation (High Complexity): Function 'encode/1' in 'Postgrex.Extensions.Interval' defines 1 pattern-matching clauses / 12 branches; decompose into smaller routines"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/interval.ex"
+                },
+                "region": {
+                  "startLine": 33,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical function logic duplicated across 2 location(s): NotificationTest.disconnect/1, SimpleConnectionTest.disconnect/1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/test/notification_test.exs"
+                },
+                "region": {
+                  "startLine": 250,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.ReplicationConnection._format_connection_error/1, Postgrex.SimpleConnection._format_connection_error/1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex"
+                },
+                "region": {
+                  "startLine": 562,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.ReplicationConnection.reconnect_or_stop/23, Postgrex.SimpleConnection.reconnect_or_stop/15"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/replication_connection.ex"
+                },
+                "region": {
+                  "startLine": 668,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.Extensions.Ltree.encode/1, Postgrex.Extensions.Lquery.encode/1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/ltree.ex"
+                },
+                "region": {
+                  "startLine": 10,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.Extensions.TimeTZ.encode/1, Postgrex.Extensions.Time.encode/1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/timetz.ex"
+                },
+                "region": {
+                  "startLine": 12,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.Extensions.TimeTZ.microsecond_to_elixir/2, Postgrex.Extensions.Time.microsecond_to_elixir/2"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/timetz.ex"
+                },
+                "region": {
+                  "startLine": 56,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.Extensions.VoidBinary.encode/1, Postgrex.Extensions.VoidText.encode/1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/void_binary.ex"
+                },
+                "region": {
+                  "startLine": 8,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-DUPLICATE_CODE_DRY",
+          "level": "error",
+          "message": {
+            "text": "DRY Violation: Identical function logic duplicated across 2 location(s): Postgrex.Extensions.TimestampTZ.decode/1, Postgrex.Extensions.Timestamp.decode/1"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/extensions/timestamptz.ex"
+                },
+                "region": {
+                  "startLine": 30,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "DPX-ELIXIR-CIRCULAR_MODULE_DEPENDENCY",
+          "level": "error",
+          "message": {
+            "text": "Circular Module Dependency detected: Postgrex.TypeModule ➔ Postgrex.Types ➔ Postgrex.TypeModule"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/Volumes/External/Code/DPX-Elixir/benchmarks/postgrex/lib/postgrex/type_module.ex"
+                },
+                "region": {
+                  "startLine": 1,
+                  "startColumn": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
